@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 
 public class HeroKnight : MonoBehaviour {
@@ -26,7 +27,7 @@ public class HeroKnight : MonoBehaviour {
     private float               m_rollDuration = 8.0f / 14.0f;
     private float               m_rollCurrentTime;
 
-
+    [SerializeField] float inputX;
     // Use this for initialization
     void Start ()
     {
@@ -37,6 +38,18 @@ public class HeroKnight : MonoBehaviour {
         m_wallSensorR2 = transform.Find("WallSensor_R2").GetComponent<Sensor_HeroKnight>();
         m_wallSensorL1 = transform.Find("WallSensor_L1").GetComponent<Sensor_HeroKnight>();
         m_wallSensorL2 = transform.Find("WallSensor_L2").GetComponent<Sensor_HeroKnight>();
+    }
+
+    private void FixedUpdate()
+    {
+        Move();
+    }
+
+    void Move()
+    {
+        if (!m_rolling )
+            m_body2d.velocity = new Vector2(inputX * m_speed, m_body2d.velocity.y);
+
     }
 
     // Update is called once per frame
@@ -68,7 +81,7 @@ public class HeroKnight : MonoBehaviour {
         }
 
         // -- Handle input and movement --
-        float inputX = Input.GetAxis("Horizontal");
+        inputX = Input.GetAxis("Horizontal");
 
         // Swap direction of sprite depending on walk direction
         if (inputX > 0)
@@ -84,9 +97,7 @@ public class HeroKnight : MonoBehaviour {
         }
 
         // Move
-        if (!m_rolling )
-            m_body2d.velocity = new Vector2(inputX * m_speed, m_body2d.velocity.y);
-
+      
         //Set AirSpeed in animator
         m_animator.SetFloat("AirSpeedY", m_body2d.velocity.y);
 
