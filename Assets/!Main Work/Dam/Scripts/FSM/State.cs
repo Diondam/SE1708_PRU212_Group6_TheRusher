@@ -2,20 +2,15 @@ namespace _Main_Work.Dam.Scripts.FSM
 {
     public class State
     {
-        public enum StateType
-        {
-            Idle,
-            Walk,
-            Attack,
-            Die
-        };
+        protected Entity entity;
+        protected ChangeStateMachine changeStateMachine;
 
-        public State( ref Entity entity, ChangeStateMachine changeStateMachine)
+        public State(Entity entity, ChangeStateMachine changeStateMachine)
         {
             this.changeStateMachine = changeStateMachine;
+            this.entity = entity;
         }
 
-        protected ChangeStateMachine changeStateMachine;
 
         public virtual void OnStart()
         {
