@@ -41,6 +41,7 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+<<<<<<< HEAD
   - name: background
     uniqueID: 1273483397
     locked: 0
@@ -79,4 +80,14 @@ TagManager:
     locked: 0
   - name: tree-3
     uniqueID: 2915816227
+=======
+  - name: BackGround
+    uniqueID: 3735833047
+    locked: 0
+  - name: MiddleGround
+    uniqueID: 1110736853
+    locked: 0
+  - name: Map
+    uniqueID: 739055599
+>>>>>>> c75dc31337694d37b119f805bc2bb0b0a1fae83c
     locked: 0
