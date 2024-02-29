@@ -22,18 +22,28 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
             count = brakeTimeIdel;
         }
 
+        private int change = 1;
         public override void OnUpdate()
         {
             count += Time.deltaTime;
             if (count < brakeTimeIdel)
             {
+                change = change * -1;
                 thisEnemy.anim.SetBool("move", true);
+                var point = thisEnemy.transform.position;
+                point.x = point.x + 2*change;
+                thisEnemy.transform.Translate(point);
             }
             else
             {
                 thisEnemy.anim.SetBool("idle", true);
             }
-            if (count >= 2*brakeTimeIdel) count = 0;
+
+            if (count >= 2 * brakeTimeIdel)
+            {
+                count = 0;
+                thisEnemy.Flip();
+            }
             base.OnUpdate();
             if (thisEnemy.CheckAttack())
             {

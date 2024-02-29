@@ -45,6 +45,12 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
             
         }
 
+        public void Flip()
+        {
+            var localScale = transform.localScale;
+            localScale.y = localScale.y*-1;
+            transform.localScale = localScale;
+        }
         private void OnCollisionEnter(Collision other)
         {
             if (other.gameObject.CompareTag("Player"))

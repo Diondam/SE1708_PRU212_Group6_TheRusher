@@ -9,14 +9,6 @@ namespace _Main_Work.Dam.Scripts.FSM
         public override void OnUpdate()
         {
             base.OnUpdate();
-
-
-            if (true)
-            {
-                changeStateMachine.ChangeToState(new State(entity, changeStateMachine));
-            }
-            
-            
         }
     }
 }
