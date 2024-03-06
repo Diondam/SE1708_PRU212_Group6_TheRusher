@@ -1,4 +1,5 @@
 using _Main_Work.Dam.Scripts.FSM;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 
@@ -7,7 +8,8 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
     public class IdleState_Enemy : State
     {
         private Enemy thisEnemy;
-        public float brakeTimeIdel = 4f;
+
+        //public float brakeTimeIdel = 4f;
         public float count;
 
         public IdleState_Enemy(Entity entity, ChangeStateMachine changeStateMachine) : base(entity, changeStateMachine)
@@ -19,20 +21,35 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
         {
             base.OnStart();
             thisEnemy.anim.SetBool("idle", true);
-            count = brakeTimeIdel;
+            count = thisEnemy.brakeTime;
+            startPos = thisEnemy.transform.position;
+            Debug.Log($"vị trí ban đầu: {startPos}");
         }
+        
+        //change is only 1 or -1
+        private int change = -1;
+        public Vector3 startPos;
 
-        private int change = 1;
         public override void OnUpdate()
         {
+            base.OnUpdate();
+            MoveRandom(ref thisEnemy.brakeTime);
+            if (thisEnemy.CheckAttack())
+            {
+                changeStateMachine.ChangeToState(thisEnemy.attackState);
+            }
+        }
+
+        Vector3 point;
+        private void MoveRandom(ref float brakeTimeIdel)
+        {
+            Debug.Log($"braketime: {brakeTimeIdel} and count: {count}");
             count += Time.deltaTime;
             if (count < brakeTimeIdel)
             {
-                change = change * -1;
                 thisEnemy.anim.SetBool("move", true);
-                var point = thisEnemy.transform.position;
-                point.x = point.x + 2*change;
-                thisEnemy.transform.Translate(point);
+                Debug.Log($"vị trí random: {point}");
+                thisEnemy.transform.position = Vector3.Lerp(startPos, point, count / brakeTimeIdel);
             }
             else
             {
@@ -43,13 +60,13 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
             {
                 count = 0;
                 thisEnemy.Flip();
-            }
-            base.OnUpdate();
-            if (thisEnemy.CheckAttack())
-            {
-                changeStateMachine.ChangeToState(thisEnemy.attackState);
+                change = change * -1;
+                startPos = thisEnemy.transform.position;
+                point = startPos;
+                point.x = point.x + 2 * change;
             }
         }
+
 
         public override void OnExit()
         {

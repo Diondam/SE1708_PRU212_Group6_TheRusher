@@ -12,6 +12,7 @@ namespace _Main_Work.Dam.Scripts.Character
         public float healthPoint =100;
         public Animator anim;
         private GameManager gm;
+        public HeroKnight heroController;
 
         protected override void Awake()
         {
@@ -20,6 +21,7 @@ namespace _Main_Work.Dam.Scripts.Character
             temp = healthPoint;
             gm = FindObjectOfType<GameManager>();
             anim = GetComponent<Animator>();
+            heroController = GetComponent<HeroKnight>();
         }
 
         protected override void Update()

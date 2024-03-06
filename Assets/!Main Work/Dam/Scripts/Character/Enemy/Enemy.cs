@@ -12,7 +12,7 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
         public GameObject player;
         public float moveSpeed;
         public float healthPoint;
-
+        public float brakeTime =4;
         public int damage = 2;
         //public GameObject dieEffect;
         
@@ -20,15 +20,16 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
         public AttackState_Enemy attackState { get; private set; }
         public DieState_Enemy dieState{ get; private set; }
         protected override void Awake()
-        {
-            base.Awake();
+        {           
             idelState = new IdleState_Enemy(this, changeStateMachine);
             attackState = new AttackState_Enemy(this, changeStateMachine);
             dieState = new DieState_Enemy(this, changeStateMachine);
             currentState = idelState;
-
             player = GameObject.FindGameObjectWithTag("Player");
             anim = GetComponent<Animator>();
+            print("Enemy Awake");
+            base.Awake();
+            changeStateMachine.ChangeToState(idelState);
         }
 
         public bool CheckAttack()
@@ -48,7 +49,7 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
         public void Flip()
         {
             var localScale = transform.localScale;
-            localScale.y = localScale.y*-1;
+            localScale.x = localScale.x*-1;
             transform.localScale = localScale;
         }
         private void OnCollisionEnter(Collision other)
