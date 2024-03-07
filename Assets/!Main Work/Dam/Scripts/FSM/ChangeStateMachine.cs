@@ -11,7 +11,7 @@ namespace _Main_Work.Dam.Scripts.FSM
       
         public State ChangeToState(State state)
         {
-            currentState.OnExit();
+            currentState?.OnExit();
             currentState = state;
             state.OnStart();
             return state;
