@@ -47,7 +47,10 @@ public class ChangePivot: EditorWindow
 
     void ChangePivotForSprite(Sprite sprite)
     {
+        
+        
         // Đặt pivot mới cho sprite
        // sprite.OverrideGeometry(new Vector2(sprite.rect.width * newPivot.x, sprite.rect.height * newPivot.y), sprite.bounds.size);
+       
     }
 }
