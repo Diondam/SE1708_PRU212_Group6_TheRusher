@@ -9,7 +9,6 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
     {
         private Enemy thisEnemy;
 
-        //public float brakeTimeIdel = 4f;
         public float count;
 
         public IdleState_Enemy(Entity entity, ChangeStateMachine changeStateMachine) : base(entity, changeStateMachine)
@@ -21,11 +20,10 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
         {
             base.OnStart();
             thisEnemy.anim.SetBool("idle", true);
-            count = thisEnemy.brakeTime;
+            count = thisEnemy.moveRandomTime;
             startPos = thisEnemy.transform.position;
-            Debug.Log($"vị trí ban đầu: {startPos}");
         }
-        
+
         //change is only 1 or -1
         private int change = -1;
         public Vector3 startPos;
@@ -33,26 +31,28 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
         public override void OnUpdate()
         {
             base.OnUpdate();
-            MoveRandom(ref thisEnemy.brakeTime);
-            if (thisEnemy.CheckAttack())
+            MoveRandom(ref thisEnemy.moveRandomTime, ref thisEnemy.rangeIdle);
+
+            if (thisEnemy.CheckAttack() && thisEnemy.currentState != thisEnemy.attackState)
             {
                 changeStateMachine.ChangeToState(thisEnemy.attackState);
             }
         }
 
         Vector3 point;
-        private void MoveRandom(ref float brakeTimeIdel)
+
+        private void MoveRandom(ref float brakeTimeIdel, ref float rangeIdle)
         {
-            Debug.Log($"braketime: {brakeTimeIdel} and count: {count}");
             count += Time.deltaTime;
             if (count < brakeTimeIdel)
             {
+                thisEnemy.anim.SetBool("idle", false);
                 thisEnemy.anim.SetBool("move", true);
-                Debug.Log($"vị trí random: {point}");
                 thisEnemy.transform.position = Vector3.Lerp(startPos, point, count / brakeTimeIdel);
             }
             else
             {
+                thisEnemy.anim.SetBool("move", false);
                 thisEnemy.anim.SetBool("idle", true);
             }
 
@@ -63,7 +63,7 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
                 change = change * -1;
                 startPos = thisEnemy.transform.position;
                 point = startPos;
-                point.x = point.x + 2 * change;
+                point.x = point.x + rangeIdle * change;
             }
         }
 

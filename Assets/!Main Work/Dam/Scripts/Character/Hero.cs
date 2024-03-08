@@ -9,7 +9,7 @@ namespace _Main_Work.Dam.Scripts.Character
     {
         public Slider slider;
         public int damage = 10;
-        public float healthPoint =100;
+        public int healthPoint =100;
         public Animator anim;
         private GameManager gm;
         public HeroKnight heroController;
@@ -17,10 +17,10 @@ namespace _Main_Work.Dam.Scripts.Character
         protected override void Awake()
         {
             base.Awake();
-            currentState = new IdelState_Hero(this, changeStateMachine);
+            var idleState = new IdelState_Hero(this, changeStateMachine);
+            currentState= changeStateMachine.ChangeToState(idleState);
             temp = healthPoint;
             gm = FindObjectOfType<GameManager>();
-            anim = GetComponent<Animator>();
             heroController = GetComponent<HeroKnight>();
         }
 
@@ -29,13 +29,18 @@ namespace _Main_Work.Dam.Scripts.Character
             base.Update();
             updateUI();
             
-            if (healthPoint==0)
+            if (healthPoint<=0)
             {
+                GetComponent<HeroKnight>().enabled = false;
                 anim.SetBool("noBlood", false);
                 anim.SetTrigger("Death");
-                gm.isEndGame=true;
-                GetComponent<HeroKnight>().enabled = false;
+                Invoke("EndGame", 3f);
             }
+        }
+
+        void EndGame()
+        {
+            gm.isEndGame=true;
         }
 
         public float temp;
@@ -43,10 +48,6 @@ namespace _Main_Work.Dam.Scripts.Character
         {
             slider.value = healthPoint / temp;
         }
-        
-        private void OnCollisionEnter2D(Collision2D other)
-        {
-            healthPoint -= 10;
-        }
+       
     }
 }

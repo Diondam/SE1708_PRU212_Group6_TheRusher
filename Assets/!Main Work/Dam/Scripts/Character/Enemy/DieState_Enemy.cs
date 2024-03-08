@@ -1,4 +1,5 @@
 using _Main_Work.Dam.Scripts.FSM;
+using UnityEngine;
 
 namespace _Main_Work.Dam.Scripts.Character.Enemy
 {
@@ -14,11 +15,17 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
         public override void OnStart()
         {
             base.OnStart();
-            thisEnemy.anim.SetBool("die", true);
+            thisEnemy.anim.SetTrigger("die");
         }
 
         public override void OnUpdate()
         {
+            thisEnemy.timeToDie -= Time.deltaTime;
+            if (thisEnemy.timeToDie <= 0)
+            {
+                thisEnemy.Die();
+            }
+
             base.OnUpdate();
         }
 

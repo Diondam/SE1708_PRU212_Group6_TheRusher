@@ -1,4 +1,5 @@
 using System;
+using _Main_Work.Dam.Scripts.Character.Enemy;
 using UnityEngine;
 
 namespace _Main_Work.Dam.Scripts
@@ -7,9 +8,10 @@ namespace _Main_Work.Dam.Scripts
     {
         public bool isEndGame;
         public float timeDelay = 1f;
-
+        public Enemy enemy;
         private void Update()
         {
+            print($"Enemy Current State: {enemy.currentState}");
             if (isEndGame == true)
             {
                 EndGame();
@@ -18,12 +20,11 @@ namespace _Main_Work.Dam.Scripts
 
         public void EndGame()
         {
-            Invoke("Pause", timeDelay);
+            Time.timeScale = 0;
         }
 
         public void Pause()
         {
-            print("pause game");
             Time.timeScale = 0;
         }
 
