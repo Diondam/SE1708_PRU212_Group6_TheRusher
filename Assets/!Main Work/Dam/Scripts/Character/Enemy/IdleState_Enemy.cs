@@ -1,4 +1,5 @@
 using _Main_Work.Dam.Scripts.FSM;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 
@@ -7,7 +8,7 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
     public class IdleState_Enemy : State
     {
         private Enemy thisEnemy;
-        public float brakeTimeIdel = 4f;
+
         public float count;
 
         public IdleState_Enemy(Entity entity, ChangeStateMachine changeStateMachine) : base(entity, changeStateMachine)
@@ -19,27 +20,53 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
         {
             base.OnStart();
             thisEnemy.anim.SetBool("idle", true);
-            count = brakeTimeIdel;
+            count = thisEnemy.moveRandomTime;
+            startPos = thisEnemy.transform.position;
         }
+
+        //change is only 1 or -1
+        private int change = -1;
+        public Vector3 startPos;
 
         public override void OnUpdate()
         {
-            count += Time.deltaTime;
-            if (count < brakeTimeIdel)
-            {
-                thisEnemy.anim.SetBool("move", true);
-            }
-            else
-            {
-                thisEnemy.anim.SetBool("idle", true);
-            }
-            if (count >= 2*brakeTimeIdel) count = 0;
             base.OnUpdate();
-            if (thisEnemy.CheckAttack())
+            MoveRandom(ref thisEnemy.moveRandomTime, ref thisEnemy.rangeIdle);
+
+            if (thisEnemy.CheckAttack() && thisEnemy.currentState != thisEnemy.attackState)
             {
                 changeStateMachine.ChangeToState(thisEnemy.attackState);
             }
         }
+
+        Vector3 point;
+
+        private void MoveRandom(ref float brakeTimeIdel, ref float rangeIdle)
+        {
+            count += Time.deltaTime;
+            if (count < brakeTimeIdel)
+            {
+                thisEnemy.anim.SetBool("idle", false);
+                thisEnemy.anim.SetBool("move", true);
+                thisEnemy.transform.position = Vector3.Lerp(startPos, point, count / brakeTimeIdel);
+            }
+            else
+            {
+                thisEnemy.anim.SetBool("move", false);
+                thisEnemy.anim.SetBool("idle", true);
+            }
+
+            if (count >= 2 * brakeTimeIdel)
+            {
+                count = 0;
+                thisEnemy.Flip();
+                change = change * -1;
+                startPos = thisEnemy.transform.position;
+                point = startPos;
+                point.x = point.x + rangeIdle * change;
+            }
+        }
+
 
         public override void OnExit()
         {
