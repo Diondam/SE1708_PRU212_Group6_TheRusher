@@ -8,20 +8,26 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
 {
     public class Enemy : Entity
     {
-        public Animator anim;
+        public Animator anim =null;
         public GameObject effect;
+        
         public GameObject player;
-        public float attackRange = 2.5f;
-        public float speedToAttack = 0.01f;
-        public int healthPoint = 100;
+        private Hero theHero;
+        
         public float moveRandomTime = 4;
-        public float rangeIdle = 2;
+        public float rangeIdle = 1;
+        
         public int damage = 2;
-        public float timeToDie = 1;
-        public float chaseRange = 5;
+        public int healthPoint = 100;
+        public int healthPointTemp;
+        public float timeToDie = 0.9f;
         public Slider slider;
-        //public GameObject dieEffect;
-
+        
+        public float attackRange = 2f;
+        public float chaseRange = 5;
+        public float speedToAttack = 1;
+        public bool attacking = false;
+       
         public IdleState_Enemy idelState { get; private set; }
         public AttackState_Enemy attackState { get; private set; }
         public DieState_Enemy dieState { get; private set; }
@@ -33,7 +39,7 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
             attackState = new AttackState_Enemy(this, changeStateMachine);
             dieState = new DieState_Enemy(this, changeStateMachine);
 
-            anim = GetComponent<Animator>();
+            anim =GetComponent<Animator>()??null;
             changeStateMachine.ChangeToState(idelState);
             player = GameObject.FindGameObjectWithTag("Player");
             print("Enemy Awake");
@@ -44,13 +50,19 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
             healthPointTemp = healthPoint;
         }
 
-        public int healthPointTemp;
 
         protected override void Update()
         {
             
             base.Update();
             UpdateUI();
+            
+        }
+
+        private void FixStand()
+        {
+            var pos = transform.position;
+           
         }
      
         void UpdateUI()
@@ -106,8 +118,19 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
             Destroy(gameObject);
         }
 
-        public bool attacking = false;
 
+        public void OnCollisionStay2D(Collision2D other)
+        {
+            if (other.gameObject.CompareTag("Player"))
+            {
+                Attack();
+                if (Input.GetMouseButtonDown(0))
+                {
+                    print("click");
+                    healthPoint -= theHero.damage;
+                }
+            }
+        }
         private void OnCollisionEnter2D(Collision2D other)
         {
             if (other.gameObject.CompareTag("Player"))
@@ -121,7 +144,7 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
             theHero = player.GetComponent<Hero>();
             if (!attacking)
             {
-                anim.SetTrigger("attack");
+                anim?.SetTrigger("attack");
                 Invoke("DealingDamage", 0.65f);
                 Invoke("CanAttack", 0.7f);
                 attacking = true;
@@ -133,19 +156,8 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
             attacking = false;
         }
 
-        public void OnCollisionStay2D(Collision2D other)
-        {
-            if (other.gameObject.CompareTag("Player"))
-            {
-                Attack();
-                if (Input.GetMouseButtonDown(0))
-                {
-                    healthPoint -= theHero.damage;
-                }
-            }
-        }
 
-        private Hero theHero;
+        
 
         void DealingDamage()
         {

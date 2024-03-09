@@ -15,7 +15,7 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
         public override void OnStart()
         {
             base.OnStart();
-            thisEnemy.anim.SetTrigger("die");
+            thisEnemy.anim?.SetTrigger("die");
         }
 
         public override void OnUpdate()
