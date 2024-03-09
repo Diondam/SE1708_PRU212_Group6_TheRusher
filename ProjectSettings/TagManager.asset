@@ -41,3 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 413935433
+    locked: 0
+  - name: Town
+    uniqueID: 963733905
+    locked: 0
