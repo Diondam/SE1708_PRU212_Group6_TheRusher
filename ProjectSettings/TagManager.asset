@@ -41,53 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-<<<<<<< HEAD
-  - name: background
-    uniqueID: 1273483397
+  - name: Background
+    uniqueID: 4251215727
     locked: 0
-  - name: mountains
-    uniqueID: 1777866639
-    locked: 0
-  - name: platform
-    uniqueID: 2255011883
-    locked: 0
-  - name: stone
-    uniqueID: 2522523549
-    locked: 0
-  - name: tree-2
-    uniqueID: 1390343109
-    locked: 0
-  - name: statue
-    uniqueID: 1417786553
-    locked: 0
-  - name: bush-small
-    uniqueID: 2110206751
-    locked: 0
-  - name: stone-3
-    uniqueID: 2169866925
-    locked: 0
-  - name: stone-2(1)
-    uniqueID: 3953066321
-    locked: 0
-  - name: stone-1
-    uniqueID: 823097085
-    locked: 0
-  - name: stone-4
-    uniqueID: 343119651
-    locked: 0
-  - name: bush-large
-    uniqueID: 2565157929
-    locked: 0
-  - name: tree-3
-    uniqueID: 2915816227
-=======
-  - name: BackGround
-    uniqueID: 3735833047
-    locked: 0
-  - name: MiddleGround
-    uniqueID: 1110736853
-    locked: 0
-  - name: Map
-    uniqueID: 739055599
->>>>>>> c75dc31337694d37b119f805bc2bb0b0a1fae83c
+  - name: Town
+    uniqueID: 2820384511
     locked: 0
