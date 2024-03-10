@@ -6,12 +6,12 @@ namespace _Main_Work.Dam.Scripts.FSM
 {
     public class Entity : MonoBehaviour
     {
-        protected State currentState;
+        public State currentState;
         protected ChangeStateMachine changeStateMachine;
 
         protected virtual void Awake()
         {
-            changeStateMachine = new ChangeStateMachine(ref currentState);
+            changeStateMachine = new ChangeStateMachine(this, currentState);
         }
 
         protected virtual void Update()

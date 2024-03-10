@@ -2,19 +2,25 @@ namespace _Main_Work.Dam.Scripts.FSM
 {
     public class ChangeStateMachine
     {
-        public ChangeStateMachine(ref State state)
+        private Entity _entity;
+        public ChangeStateMachine(Entity entity, State state)
         {
-            currentState = state;
+            _entity = entity;
+            _entity.currentState = state;
         }
-     
-        State currentState;
-      
+
+        public ChangeStateMachine()
+        {
+        }
+
+            State currentState;
+
         public State ChangeToState(State state)
         {
-            currentState?.OnExit();
-            currentState = state;
-            state.OnStart();
-            return state;
+            _entity.currentState?.OnExit();
+            _entity.currentState = state;
+            _entity.currentState.OnStart();
+            return _entity.currentState;
         }
     }
 }

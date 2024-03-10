@@ -1,53 +1,35 @@
+// ChangePivot.cs
+
 using UnityEngine;
-using UnityEditor;
 
-public class ChangePivot: EditorWindow
+public class ChangePivot : MonoBehaviour
 {
-    private Sprite sprite; // Tham chiếu đến sprite cần thay đổi pivot
-    private Vector2 newPivot = new Vector2(0.5f, 0.5f); // Pivot mới (ví dụ: 0.5, 0.5 là pivot ở trung tâm của sprite)
+    public Sprite[] sprites; // Mảng chứa tất cả các sprite cần thay đổi pivot
+    public Vector2 newPivot = new Vector2(0.75f, 0.35f); // Pivot mới (ví dụ: 0.5, 0.5 là pivot ở trung tâm của sprite)
 
-    [MenuItem("Tools/Change Pivot For All SubSprites")]
-    public static void ShowWindow()
+    public void ChangePivotForAllSprites()
     {
-        EditorWindow.GetWindow(typeof(ChangePivot));
-    }
-
-    void OnGUI()
-    {
-        GUILayout.Label("Change Pivot For All SubSprites", EditorStyles.boldLabel);
-        sprite = EditorGUILayout.ObjectField("Sprite", sprite, typeof(Sprite), false) as Sprite;
-
-        if (GUILayout.Button("Change Pivot"))
+        if (sprites != null && sprites.Length > 0)
         {
-            if (sprite != null)
+            foreach (Sprite sprite in sprites)
             {
-                ChangePivotForAllSubSprites(sprite);
+                if (sprite != null)
+                {
+                    string assetPath = UnityEditor.AssetDatabase.GetAssetPath(sprite);
+                    // Tạo một sprite mới với pivot mới
+                    Texture2D texture = UnityEditor.AssetDatabase.LoadAssetAtPath<Texture2D>(assetPath);
+                    Sprite newSprite = Sprite.Create(texture, sprite.rect, newPivot, sprite.pixelsPerUnit);
+
+                    // Ghi đè dữ liệu mới vào asset
+                    UnityEditor.AssetDatabase.DeleteAsset(assetPath); // Xóa asset cũ
+                    UnityEditor.AssetDatabase.AddObjectToAsset(newSprite, assetPath); // Thêm asset mới
+                    UnityEditor.AssetDatabase.SaveAssets(); // Lưu lại
+                }
             }
-            else
-            {
-                Debug.LogError("Please assign a sprite.");
-            }
+
+            // Lưu và làm mới tài nguyên
+
+            UnityEditor.AssetDatabase.Refresh();
         }
-    }
-
-    void ChangePivotForAllSubSprites(Sprite sprite)
-    {
-        // Lấy tất cả các sprite con của sprite chính
-        Sprite[] subSprites = AssetDatabase.LoadAllAssetRepresentationsAtPath(AssetDatabase.GetAssetPath(sprite)) as Sprite[];
-
-        // Lặp qua tất cả các sprite con và thay đổi pivot
-        foreach (Sprite subSprite in subSprites)
-        {
-            ChangePivotForSprite(subSprite);
-        }
-
-        AssetDatabase.SaveAssets();
-        AssetDatabase.Refresh();
-    }
-
-    void ChangePivotForSprite(Sprite sprite)
-    {
-        // Đặt pivot mới cho sprite
-       // sprite.OverrideGeometry(new Vector2(sprite.rect.width * newPivot.x, sprite.rect.height * newPivot.y), sprite.bounds.size);
     }
 }
