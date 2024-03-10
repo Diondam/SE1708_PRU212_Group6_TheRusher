@@ -44,18 +44,75 @@ TagManager:
   - name: Background
     uniqueID: 680401373
     locked: 0
-  - name: Middleground
+  - name: mountains
+    uniqueID: 3118817033
+    locked: 0
+  - name: tilemap
     uniqueID: 3253749501
     locked: 0
-  - name: MapNoCollision
+  - name: tilemap-collison
     uniqueID: 2874121089
     locked: 0
-  - name: MapTrap
+  - name: tilemap-trap
     uniqueID: 2319712103
     locked: 0
-  - name: Hero
+  - name: stone-1
     uniqueID: 2994801571
     locked: 0
-  - name: MapCollision
+  - name: stone-1(1)
     uniqueID: 3148540215
+    locked: 0
+  - name: stone-2
+    uniqueID: 3785828193
+    locked: 0
+  - name: stone-2(1)
+    uniqueID: 333763207
+    locked: 0
+  - name: stone-2(2)
+    uniqueID: 1110015965
+    locked: 0
+  - name: stone-2(3)
+    uniqueID: 1532927399
+    locked: 0
+  - name: stone-4
+    uniqueID: 3637375403
+    locked: 0
+  - name: stone-3
+    uniqueID: 78247903
+    locked: 0
+  - name: tree-1
+    uniqueID: 1620483277
+    locked: 0
+  - name: tree-2
+    uniqueID: 2009348495
+    locked: 0
+  - name: tree-3
+    uniqueID: 2217627223
+    locked: 0
+  - name: bush-large(1)
+    uniqueID: 2044478265
+    locked: 0
+  - name: bush-large(2)
+    uniqueID: 161952393
+    locked: 0
+  - name: bush-small
+    uniqueID: 3353451361
+    locked: 0
+  - name: bush-small(1)
+    uniqueID: 585088055
+    locked: 0
+  - name: bush-small(2)
+    uniqueID: 3610611601
+    locked: 0
+  - name: bush-large
+    uniqueID: 1608766881
+    locked: 0
+  - name: statue
+    uniqueID: 2018143717
+    locked: 0
+  - name: skeleton
+    uniqueID: 4195524855
+    locked: 0
+  - name: hell-gato
+    uniqueID: 149524281
     locked: 0
