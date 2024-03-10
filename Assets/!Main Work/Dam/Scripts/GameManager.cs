@@ -18,6 +18,13 @@ namespace _Main_Work.Dam.Scripts
             }
         }
 
+
+        public void LoadLevel()
+        {
+            
+        }
+        
+        
         public void EndGame()
         {
             Time.timeScale = 0;
@@ -30,7 +37,7 @@ namespace _Main_Work.Dam.Scripts
 
         public void Resume()
         {
-            
+            Time.timeScale = 1;
         }
     }
 }

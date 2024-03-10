@@ -19,7 +19,7 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
         public override void OnStart()
         {
             base.OnStart();
-            thisEnemy.anim.SetBool("idle", true);
+            thisEnemy.anim?.SetBool("idle", true);
             count = thisEnemy.moveRandomTime;
             startPos = thisEnemy.transform.position;
         }
@@ -46,14 +46,14 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
             count += Time.deltaTime;
             if (count < brakeTimeIdel)
             {
-                thisEnemy.anim.SetBool("idle", false);
-                thisEnemy.anim.SetBool("move", true);
+                thisEnemy.anim?.SetBool("idle", false);
+                thisEnemy.anim?.SetBool("move", true);
                 thisEnemy.transform.position = Vector3.Lerp(startPos, point, count / brakeTimeIdel);
             }
             else
             {
-                thisEnemy.anim.SetBool("move", false);
-                thisEnemy.anim.SetBool("idle", true);
+                thisEnemy.anim?.SetBool("move", false);
+                thisEnemy.anim?.SetBool("idle", true);
             }
 
             if (count >= 2 * brakeTimeIdel)
