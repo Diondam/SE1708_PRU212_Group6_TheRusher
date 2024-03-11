@@ -13,21 +13,28 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
 
         public GameObject player;
         private Hero theHero;
-
+        
+        [Header("Idel")] 
         public float moveRandomTime = 4;
         public float rangeIdle = 1;
-
+        
+        [Header("Health")] 
         public int damage = 2;
         public int healthPoint = 100;
         public int healthPointTemp;
         public float timeToDie = 0.9f;
         public Slider slider;
-
+        
+        [Header("Attack")] 
         public float attackRange = 2f;
         public float chaseRange = 5;
         public float speedToAttack = 1;
         public bool attacking = false;
         public bool flip = false;
+        
+        [Header("Sound Data")] 
+        public SoundData enemySound;
+
         public IdleState_Enemy idelState { get; private set; }
         public AttackState_Enemy attackState { get; private set; }
         public DieState_Enemy dieState { get; private set; }
@@ -170,7 +177,6 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
             {
                 theHero.healthPoint -= damage;
             }
-            
         }
 
         private void OnDrawGizmos()

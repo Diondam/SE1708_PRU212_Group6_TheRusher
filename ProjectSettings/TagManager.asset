@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - DiePoint
   layers:
   - Default
   - TransparentFX
@@ -47,4 +48,3 @@ TagManager:
   - name: Town
     uniqueID: 1095735493
     locked: 0
-
