@@ -53,9 +53,15 @@ TagManager:
   - name: MapTrap
     uniqueID: 2319712103
     locked: 0
+  - name: MapCollision
+    uniqueID: 3148540215
+    locked: 0
   - name: Hero
     uniqueID: 2994801571
     locked: 0
-  - name: MapCollision
-    uniqueID: 3148540215
+  - name: Monster
+    uniqueID: 2351815003
+    locked: 0
+  - name: Water
+    uniqueID: 908329375
     locked: 0
