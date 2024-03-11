@@ -32,15 +32,13 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
             //bị player đánh chết
             if (thisEnemy.healthPoint <= 0 && thisEnemy.currentState != thisEnemy.dieState)
             {
-                //k theo logic, chỉ là ngăn chặn trigger 
-                thisEnemy.attacking = true;
                 changeStateMachine.ChangeToState(thisEnemy.dieState);
             }
 
-            // if(thisEnemy.CheckChase() && thisEnemy.currentState != thisEnemy.idelState)
-            // {
-            //     changeStateMachine.ChangeToState(thisEnemy.idelState);
-            // }
+            if(!thisEnemy.CheckChase() && thisEnemy.currentState == thisEnemy.attackState)
+            {
+                changeStateMachine.ChangeToState(thisEnemy.idelState);
+            }
         }
 
         public override void OnExit()
