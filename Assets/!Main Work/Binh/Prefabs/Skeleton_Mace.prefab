@@ -62,6 +62,8 @@ MonoBehaviour:
   chaseRange: 5
   speedToAttack: 1
   attacking: 0
+  flip: 0
+  enemySound: {fileID: 0}
 --- !u!212 &878480672911416219
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -188,6 +190,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5574985871497332590}
     m_Modifications:
+    - target: {fileID: 4037957375603425034, guid: 89e14cb50f8ca0d41a977f00ee850468, type: 3}
+      propertyPath: m_Name
+      value: Slider
+      objectReference: {fileID: 0}
     - target: {fileID: 4966351636365416493, guid: 89e14cb50f8ca0d41a977f00ee850468, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1
