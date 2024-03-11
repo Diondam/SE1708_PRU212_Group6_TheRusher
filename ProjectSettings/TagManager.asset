@@ -42,9 +42,27 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Background
-    uniqueID: 3605350709
+  - name: bg
+    uniqueID: 2898594113
     locked: 0
-  - name: Town
-    uniqueID: 1095735493
+  - name: mbg
+    uniqueID: 623030703
+    locked: 0
+  - name: trap
+    uniqueID: 2426388979
+    locked: 0
+  - name: water
+    uniqueID: 3812067935
+    locked: 0
+  - name: collision
+    uniqueID: 1567820115
+    locked: 0
+  - name: hero
+    uniqueID: 2633274173
+    locked: 0
+  - name: noCollision
+    uniqueID: 4033462825
+    locked: 0
+  - name: monster
+    uniqueID: 386651139
     locked: 0
