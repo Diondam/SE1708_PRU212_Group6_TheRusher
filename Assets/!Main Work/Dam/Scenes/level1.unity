@@ -3381,6 +3381,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 147302786093315915, guid: 013f6e2c618a9f94cb39049843d0f8b8, type: 3}
+      propertyPath: m_speed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 147302786093315915, guid: 013f6e2c618a9f94cb39049843d0f8b8, type: 3}
+      propertyPath: m_jumpForce
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 147302786093315915, guid: 013f6e2c618a9f94cb39049843d0f8b8, type: 3}
+      propertyPath: m_rollForce
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 814019104061384842, guid: 013f6e2c618a9f94cb39049843d0f8b8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
