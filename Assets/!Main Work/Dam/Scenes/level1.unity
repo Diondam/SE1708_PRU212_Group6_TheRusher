@@ -415,6 +415,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RestorePoint (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 651905289947953002, guid: 03a863b5a007b10438cf267f70026026, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9169454286271182940, guid: 03a863b5a007b10438cf267f70026026, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.06
@@ -601,6 +605,10 @@ PrefabInstance:
     - target: {fileID: 651905289947953002, guid: 03a863b5a007b10438cf267f70026026, type: 3}
       propertyPath: m_Name
       value: RestorePoint (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 651905289947953002, guid: 03a863b5a007b10438cf267f70026026, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9169454286271182940, guid: 03a863b5a007b10438cf267f70026026, type: 3}
       propertyPath: m_LocalPosition.x
@@ -899,7 +907,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &607756352
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1155,7 +1163,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &807778455
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1373,7 +1381,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &907844106
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1514,11 +1522,12 @@ MonoBehaviour:
   healthPointTemp: 0
   timeToDie: 0.9
   slider: {fileID: 1290233629}
-  attackRange: 2.39
+  attackRange: 1.35
   chaseRange: 4.2
   speedToAttack: 1
   attacking: 0
   flip: 1
+  enemySound: {fileID: 0}
 --- !u!4 &907844110
 Transform:
   m_ObjectHideFlags: 0
@@ -1637,7 +1646,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &1009272569
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2175,6 +2184,7 @@ MonoBehaviour:
   speedToAttack: 1
   attacking: 0
   flip: 0
+  enemySound: {fileID: 0}
 --- !u!4 &1202538184
 Transform:
   m_ObjectHideFlags: 0
@@ -2521,7 +2531,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &1590466481
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2750,23 +2760,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6786277890399635459, guid: 89e14cb50f8ca0d41a977f00ee850468, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6786277890399635459, guid: 89e14cb50f8ca0d41a977f00ee850468, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8231937732404276508, guid: 89e14cb50f8ca0d41a977f00ee850468, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8231937732404276508, guid: 89e14cb50f8ca0d41a977f00ee850468, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8231937732404276508, guid: 89e14cb50f8ca0d41a977f00ee850468, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2920,7 +2930,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &1848027492
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3093,6 +3103,7 @@ MonoBehaviour:
   speedToAttack: 1
   attacking: 0
   flip: 0
+  enemySound: {fileID: 0}
 --- !u!4 &1848027497
 Transform:
   m_ObjectHideFlags: 0
@@ -3353,6 +3364,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FinishGate
       objectReference: {fileID: 0}
+    - target: {fileID: 3198284895170876389, guid: 53bc0adb0be3e8848b1b4f9a2cfcfb91, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3430,6 +3445,10 @@ PrefabInstance:
     - target: {fileID: 651905289947953002, guid: 03a863b5a007b10438cf267f70026026, type: 3}
       propertyPath: m_Name
       value: RestorePoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 651905289947953002, guid: 03a863b5a007b10438cf267f70026026, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9169454286271182940, guid: 03a863b5a007b10438cf267f70026026, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3574,23 +3593,23 @@ PrefabInstance:
       objectReference: {fileID: 1669526819}
     - target: {fileID: 6786277890399635459, guid: 89e14cb50f8ca0d41a977f00ee850468, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6786277890399635459, guid: 89e14cb50f8ca0d41a977f00ee850468, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8231937732404276508, guid: 89e14cb50f8ca0d41a977f00ee850468, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8231937732404276508, guid: 89e14cb50f8ca0d41a977f00ee850468, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8231937732404276508, guid: 89e14cb50f8ca0d41a977f00ee850468, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
