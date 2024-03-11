@@ -63,6 +63,7 @@ public class HeroKnight : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
+        DelaySetGround2();
         // Increase timer that controls attack combo
         m_timeSinceAttack += Time.deltaTime;
 
@@ -169,12 +170,11 @@ public class HeroKnight : MonoBehaviour {
         else if (Input.GetKeyDown("space") && m_grounded && !m_rolling)
         {
             m_animator.SetTrigger("Jump");
-            m_grounded = false;
+            Invoke("DelaySetGround", timeDelay);
             m_animator.SetBool("Grounded", m_grounded);
             m_body2d.velocity = new Vector2(m_body2d.velocity.x, m_jumpForce);
             m_groundSensor.Disable(0.2f);
         }
-
         //Run
         else if (Mathf.Abs(inputX) > Mathf.Epsilon)
         {
@@ -193,6 +193,16 @@ public class HeroKnight : MonoBehaviour {
         }
     }
 
+    public float timeDelay = 1f;
+    void DelaySetGround()
+    {
+        m_grounded = false;
+    }
+    
+    void DelaySetGround2()
+    {
+        m_grounded = true;
+    }
     // Animation Events
     // Called in slide animation.
     void AE_SlideDust()

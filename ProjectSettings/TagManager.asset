@@ -41,27 +41,3 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Background
-    uniqueID: 680401373
-    locked: 0
-  - name: Middleground
-    uniqueID: 3253749501
-    locked: 0
-  - name: MapNoCollision
-    uniqueID: 2874121089
-    locked: 0
-  - name: MapTrap
-    uniqueID: 2319712103
-    locked: 0
-  - name: MapCollision
-    uniqueID: 3148540215
-    locked: 0
-  - name: Hero
-    uniqueID: 2994801571
-    locked: 0
-  - name: Monster
-    uniqueID: 2351815003
-    locked: 0
-  - name: Water
-    uniqueID: 908329375
-    locked: 0
