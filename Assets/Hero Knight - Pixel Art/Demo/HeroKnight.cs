@@ -6,7 +6,7 @@ using _Main_Work.Dam.Scripts.Character;
 
 public class HeroKnight : MonoBehaviour {
 
-    public float      m_speed = 4.0f;
+    public float      m_speed = 2.0f;
     [SerializeField] float      m_jumpForce = 7.5f;
     [SerializeField] float      m_rollForce = 6.0f;
     [SerializeField] bool       m_noBlood = false;
