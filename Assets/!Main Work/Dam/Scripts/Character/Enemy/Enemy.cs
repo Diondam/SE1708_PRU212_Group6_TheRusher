@@ -156,8 +156,7 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
             attacking = false;
         }
 
-
-        
+      
 
         void DealingDamage()
         {
