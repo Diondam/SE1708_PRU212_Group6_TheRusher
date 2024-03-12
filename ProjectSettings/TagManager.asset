@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - DiePoint
   layers:
   - Default
   - TransparentFX
@@ -40,4 +41,43 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: bg
+    uniqueID: 2588093517
+    locked: 0
+  - name: mdgr
+    uniqueID: 2675621751
+    locked: 0
+  - name: trap
+    uniqueID: 2197481351
+    locked: 0
+  - name: nocollision
+    uniqueID: 1918648201
+    locked: 0
+  - name: collision
+    uniqueID: 2963122547
+    locked: 0
+  - name: water
+    uniqueID: 1417961727
+    locked: 0
+  - name: hero
+    uniqueID: 801680433
+    locked: 0
+  - name: monster
+    uniqueID: 1137666649
+    locked: 0
+  - name: finishGate
+    uniqueID: 658265365
+    locked: 0
+  - name: canvasMonster
+    uniqueID: 800300647
+    locked: 0
+  - name: canvasHero
+    uniqueID: 2518181351
+    locked: 0
+  - name: buff
+    uniqueID: 2709164909
+    locked: 0
+  - name: New Layer 13
+    uniqueID: 2129107491
     locked: 0
