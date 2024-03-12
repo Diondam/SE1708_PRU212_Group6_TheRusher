@@ -4,6 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Missile
   - DiePoint
   layers:
   - Default
@@ -42,137 +43,69 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-<<<<<<< HEAD
-  - name: background
-    uniqueID: 1000131429
+  - name: New Layer 1
+    uniqueID: 1978291573
     locked: 0
-  - name: mountains
-    uniqueID: 423894549
+  - name: New Layer 2
+    uniqueID: 3416433941
     locked: 0
-  - name: ghost
-    uniqueID: 3251706175
+  - name: New Layer 3
+    uniqueID: 358697093
     locked: 0
-  - name: skeleton
-    uniqueID: 2299516529
+  - name: New Layer 4
+    uniqueID: 3115255485
     locked: 0
-  - name: hell
-    uniqueID: 4288041215
+  - name: New Layer 5
+    uniqueID: 910248523
     locked: 0
-  - name: darkmage
-    uniqueID: 1556347629
+  - name: New Layer 6
+    uniqueID: 2320615903
     locked: 0
-  - name: statue
-    uniqueID: 790107939
+  - name: New Layer 7
+    uniqueID: 3474519247
     locked: 0
-  - name: bush-large
-    uniqueID: 3554637499
+  - name: New Layer 8
+    uniqueID: 36836385
     locked: 0
-  - name: bush-small(2)
-    uniqueID: 3823070329
+  - name: New Layer 9
+    uniqueID: 2188405491
     locked: 0
-  - name: bush-small(1)
-    uniqueID: 3185452835
+  - name: New Layer 10
+    uniqueID: 1195624127
     locked: 0
-  - name: bush-small
-    uniqueID: 3893264853
+  - name: New Layer 11
+    uniqueID: 1837202209
     locked: 0
-  - name: bush-large(2)
-    uniqueID: 3930501699
-    locked: 0
-  - name: bush-large(1)
-    uniqueID: 2184424365
-    locked: 0
-  - name: tree-3
-    uniqueID: 1635555673
-    locked: 0
-  - name: tree-2
-    uniqueID: 3947059971
-    locked: 0
-  - name: tree-1
-    uniqueID: 490878697
-    locked: 0
-  - name: stone-3
-    uniqueID: 1496933417
-    locked: 0
-  - name: stone-4
-    uniqueID: 3148008769
-    locked: 0
-  - name: stone-2(3)
-    uniqueID: 2397931879
-    locked: 0
-  - name: stone-2(2)
-    uniqueID: 3612055151
-    locked: 0
-  - name: stone-2(1)
-    uniqueID: 2932124815
-    locked: 0
-  - name: stone-2
-    uniqueID: 52306667
-    locked: 0
-  - name: stone-1(1)
-    uniqueID: 1498407285
-    locked: 0
-  - name: stone-1
-    uniqueID: 1847419879
-    locked: 0
-  - name: tilemap_collison
-    uniqueID: 312438117
-    locked: 0
-  - name: tilemap_trap
-    uniqueID: 3267348839
-    locked: 0
-  - name: tilemap
-    uniqueID: 4105705829
-    locked: 0
-  - name: hero
-    uniqueID: 2471487461
-    locked: 0
-  - name: restorepoint
-    uniqueID: 1775751329
-    locked: 0
-  - name: finishgate
-    uniqueID: 1420529945
-    locked: 0
-  - name: item
-    uniqueID: 3490374733
-=======
-  - name: bg
-    uniqueID: 2588093517
-    locked: 0
-  - name: mdgr
-    uniqueID: 2675621751
-    locked: 0
-  - name: trap
-    uniqueID: 2197481351
-    locked: 0
-  - name: nocollision
-    uniqueID: 1918648201
-    locked: 0
-  - name: collision
-    uniqueID: 2963122547
-    locked: 0
-  - name: water
-    uniqueID: 1417961727
-    locked: 0
-  - name: hero
-    uniqueID: 801680433
-    locked: 0
-  - name: monster
-    uniqueID: 1137666649
-    locked: 0
-  - name: finishGate
-    uniqueID: 658265365
-    locked: 0
-  - name: canvasMonster
-    uniqueID: 800300647
-    locked: 0
-  - name: canvasHero
-    uniqueID: 2518181351
-    locked: 0
-  - name: buff
-    uniqueID: 2709164909
+  - name: New Layer 12
+    uniqueID: 767353405
     locked: 0
   - name: New Layer 13
-    uniqueID: 2129107491
->>>>>>> ab750c9560c207e1f78b0b86c144ca2283f0cb98
+    uniqueID: 15837477
+    locked: 0
+  - name: New Layer 14
+    uniqueID: 2590274993
+    locked: 0
+  - name: New Layer 15
+    uniqueID: 1107456355
+    locked: 0
+  - name: New Layer 16
+    uniqueID: 3253726803
+    locked: 0
+  - name: New Layer 17
+    uniqueID: 2998922293
+    locked: 0
+  - name: New Layer 18
+    uniqueID: 2175331455
+    locked: 0
+  - name: New Layer 19
+    uniqueID: 4290309863
+    locked: 0
+  - name: New Layer 20
+    uniqueID: 3489868237
+    locked: 0
+  - name: New Layer 21
+    uniqueID: 341376115
+    locked: 0
+  - name: New Layer 22
+    uniqueID: 1052681195
     locked: 0
