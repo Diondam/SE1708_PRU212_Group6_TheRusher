@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SoundController : MonoBehaviour
 {
     public AudioClip backgroundMusic;
     public AudioClip UISound;
-    public float volumeFX = 0.5f;
-    public float volumeBG = 0.5f;
+    // public float volumeFX = 0.7f;
+    // public float volumeBG = 0.7f;
 
 
   
@@ -29,15 +30,15 @@ public class SoundController : MonoBehaviour
     public AudioSource heroSpeaker;
     public AudioSource enemySpeaker;
     
-    public void SetFXVolume()
+    public void SetFXVolume(Slider volumeFX)
     {
-        enemySpeaker.volume = volumeFX;
-        heroSpeaker.volume = volumeFX;
+        enemySpeaker.volume = volumeFX.value;
+        heroSpeaker.volume = volumeFX.value;
     }
 
-    public void SetBGVolume()
+    public void SetBGVolume( Slider volumeBG)
     {
-        BGSpeaker.volume = volumeBG;
+        BGSpeaker.volume = volumeBG.value;
     }
 
     public void PlayBGSound()

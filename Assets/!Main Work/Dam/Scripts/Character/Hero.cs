@@ -14,7 +14,8 @@ namespace _Main_Work.Dam.Scripts.Character
         public Animator anim;
         private GameManager gm;
         public HeroKnight heroController;
-
+        public GameObject attackEffect;
+        public float offsetEffect = 0.7f;
         protected override void Awake()
         {
             base.Awake();
@@ -23,8 +24,14 @@ namespace _Main_Work.Dam.Scripts.Character
             temp = healthPoint;
             gm = FindObjectOfType<GameManager>();
             heroController = GetComponent<HeroKnight>();
-            if(gm.diePoint != null)
-            transform.position = gm.diePoint.position;
+            transform.position = gm.diePoint;
+            
+        }
+
+        private void Start()
+        {
+            print("spawn effect");
+            attackEffect =Instantiate(attackEffect, transform);
         }
 
         protected override void Update()
@@ -34,13 +41,22 @@ namespace _Main_Work.Dam.Scripts.Character
 
             if (healthPoint <= 0)
             {
+                //play die sound
                 var soundControler = gm.soundController;
                 soundControler.heroSpeaker.PlayOneShot(soundControler.heroDieSound);
-                
+
+                gm.diePoint = transform.position;
                 GetComponent<HeroKnight>().enabled = false;
                 anim.SetBool("noBlood", false);
                 anim.SetTrigger("Death");
                 Invoke("EndGame", 3f);
+            }
+            
+            if (Input.GetMouseButtonDown(0))
+            {
+                print("effect");
+                attackEffect.SetActive(false);
+                attackEffect.SetActive(true);
             }
         }
 
@@ -49,7 +65,7 @@ namespace _Main_Work.Dam.Scripts.Character
             gm.EndGame();
         }
 
-        private void  OnTriggerEnter2D(Collider2D other)
+        private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.gameObject.CompareTag("DiePoint"))
             {
