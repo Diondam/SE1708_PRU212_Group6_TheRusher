@@ -16,7 +16,7 @@ namespace _Main_Work.Dam.Scripts
         public int level = 1;
         private string sceneNameToLoad = "level";
         public string arbitraryNameScene ;
-        public Transform diePoint  ;
+        public Vector3 diePoint = new Vector3(0,0.7f,0);
         
         
         private void Awake()
@@ -49,14 +49,9 @@ namespace _Main_Work.Dam.Scripts
         public void StartGame()
         {
             LoadScene(1);
-            Invoke("DelayHideStart",0.3f);
+            uiController.gameStart.SetActive(false);
         }
-
-        void DelayHideStart()
-        {
-           uiController.gameStart.SetActive(false);
-        }
-        
+      
         public void Resume()
         {
            // LoadPlayerData();
@@ -65,25 +60,31 @@ namespace _Main_Work.Dam.Scripts
 
         public void ReStart()
         {
+            //TODO: tắt 2 cái trước rồi mới load
+            uiController.DelayImage.gameObject.SetActive(true);
+            uiController.gameEnd.SetActive(false);
             LoadPlayerData();
             LoadScene(level);
         }
         public void LoadLevel()
         {
+            level++;
             LoadScene(level);
             SavePlayerData();
-            level++;
         }
         public void LoadScene(int level)
         {
+            StartCoroutine(uiController.OpenDelayScene());
             SceneManager.LoadScene("level"+ level);
         }
         
         void SavePlayerData()
         {
             PlayerPrefs.SetInt("Level", level);
-            string json = JsonUtility.ToJson(diePoint);
-            PlayerPrefs.SetString("DiePoint", json);
+            
+                string json = JsonUtility.ToJson(diePoint);
+                PlayerPrefs.SetString("DiePoint", json);
+            
             PlayerPrefs.Save(); 
         }
 
@@ -92,7 +93,7 @@ namespace _Main_Work.Dam.Scripts
             string json = PlayerPrefs.GetString("TransformData");
             if (!string.IsNullOrEmpty(json))
             {
-                diePoint = JsonUtility.FromJson<Transform>(json);
+                diePoint = JsonUtility.FromJson<Vector3>(json);
             }
             if (PlayerPrefs.HasKey("Level"))
             {

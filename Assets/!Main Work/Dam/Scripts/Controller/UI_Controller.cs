@@ -1,3 +1,5 @@
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,17 +14,28 @@ namespace _Main_Work.Dam.Scripts
         public Button pauseGame;
         public Button startButton;
 
+        public Slider BGSoundVolume;
+        public Slider FXSoundVolume;
 
-
+        public Image DelayImage;
         public void UIOnUpdate()
         {
-            
+            BGSoundVolume.value = PlayerPrefs.GetFloat("BGSoundVolume");
         }
         public void OpenStartGame()
         {
             gameStart.SetActive(true);
         }
 
+
+        public IEnumerator OpenDelayScene()
+        {
+            DelayImage.gameObject.SetActive(true);
+            yield return new WaitForSeconds(0.5f);
+            DelayImage.gameObject.SetActive(false);
+            yield return new WaitForSeconds(0.1f);
+
+        }
         public void OpenSetting()
         {
             gameSettings.SetActive(true);
@@ -37,5 +50,6 @@ namespace _Main_Work.Dam.Scripts
         {
             gameEnd.SetActive(true);
         }
+      
     }
 }
