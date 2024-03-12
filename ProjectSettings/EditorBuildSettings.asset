@@ -11,10 +11,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/!Main Work/Dam/Scenes/level1.unity
     guid: b258785bdb859b14296a3572f959fb84
-  - enabled: 1
-    path: Assets/!Main Work/Dam/Scenes/level2.unity
-    guid: ddea7b370f2f02b4ea6381735fa11aa0
-  - enabled: 1
-    path: Assets/!Main Work/Dam/Scenes/level3.unity
-    guid: 15bf406824fd5c74bb54157e1d3cae4b
   m_configObjects: {}
