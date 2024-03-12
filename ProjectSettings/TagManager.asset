@@ -3,12 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-<<<<<<< HEAD
-  tags: []
-=======
   tags:
   - DiePoint
->>>>>>> 6618cbe6304216ec8f2d8ae6f37b9bc81ec9e67a
   layers:
   - Default
   - TransparentFX
@@ -46,116 +42,96 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-<<<<<<< HEAD
   - name: background
-    uniqueID: 3531188451
+    uniqueID: 1000131429
     locked: 0
   - name: mountains
-    uniqueID: 1932523699
+    uniqueID: 423894549
+    locked: 0
+  - name: ghost
+    uniqueID: 3251706175
     locked: 0
   - name: skeleton
-    uniqueID: 3189763649
+    uniqueID: 2299516529
     locked: 0
-  - name: hell-gato
-    uniqueID: 98575923
+  - name: hell
+    uniqueID: 4288041215
+    locked: 0
+  - name: darkmage
+    uniqueID: 1556347629
     locked: 0
   - name: statue
-    uniqueID: 1151854507
+    uniqueID: 790107939
     locked: 0
   - name: bush-large
-    uniqueID: 17617567
+    uniqueID: 3554637499
     locked: 0
   - name: bush-small(2)
-    uniqueID: 1656780129
+    uniqueID: 3823070329
     locked: 0
   - name: bush-small(1)
-    uniqueID: 2900633905
+    uniqueID: 3185452835
     locked: 0
   - name: bush-small
-    uniqueID: 1996206059
+    uniqueID: 3893264853
     locked: 0
   - name: bush-large(2)
-    uniqueID: 2067496477
+    uniqueID: 3930501699
     locked: 0
   - name: bush-large(1)
-    uniqueID: 2353493451
+    uniqueID: 2184424365
     locked: 0
   - name: tree-3
-    uniqueID: 225154493
+    uniqueID: 1635555673
     locked: 0
   - name: tree-2
-    uniqueID: 3160498327
+    uniqueID: 3947059971
     locked: 0
   - name: tree-1
-    uniqueID: 2767349199
+    uniqueID: 490878697
     locked: 0
   - name: stone-3
-    uniqueID: 2688326921
+    uniqueID: 1496933417
     locked: 0
   - name: stone-4
-    uniqueID: 2174826241
+    uniqueID: 3148008769
     locked: 0
   - name: stone-2(3)
-    uniqueID: 3054363223
+    uniqueID: 2397931879
     locked: 0
   - name: stone-2(2)
-    uniqueID: 109881333
+    uniqueID: 3612055151
     locked: 0
   - name: stone-2(1)
-    uniqueID: 1972974899
+    uniqueID: 2932124815
     locked: 0
   - name: stone-2
-    uniqueID: 2796082149
+    uniqueID: 52306667
     locked: 0
   - name: stone-1(1)
-    uniqueID: 1075916531
+    uniqueID: 1498407285
     locked: 0
   - name: stone-1
-    uniqueID: 1752753605
+    uniqueID: 1847419879
+    locked: 0
+  - name: tilemap_collison
+    uniqueID: 312438117
+    locked: 0
+  - name: tilemap_trap
+    uniqueID: 3267348839
     locked: 0
   - name: tilemap
-    uniqueID: 238141363
-    locked: 0
-  - name: tilemap-collison
-    uniqueID: 3547923213
-    locked: 0
-  - name: tile-trap
-    uniqueID: 3170244569
-    locked: 0
-  - name: hell-gato
-    uniqueID: 2822891675
-    locked: 0
-  - name: ghost-halo
-    uniqueID: 136548815
-    locked: 0
-  - name: canvas
-    uniqueID: 1963165353
+    uniqueID: 4105705829
     locked: 0
   - name: hero
-    uniqueID: 3890409721
-=======
-  - name: bg
-    uniqueID: 2898594113
+    uniqueID: 2471487461
     locked: 0
-  - name: mbg
-    uniqueID: 623030703
+  - name: restorepoint
+    uniqueID: 1775751329
     locked: 0
-  - name: trap
-    uniqueID: 2426388979
+  - name: finishgate
+    uniqueID: 1420529945
     locked: 0
-  - name: water
-    uniqueID: 3812067935
-    locked: 0
-  - name: collision
-    uniqueID: 1567820115
-    locked: 0
-  - name: hero
-    uniqueID: 2633274173
-    locked: 0
-  - name: noCollision
-    uniqueID: 4033462825
-    locked: 0
-  - name: monster
-    uniqueID: 386651139
->>>>>>> 6618cbe6304216ec8f2d8ae6f37b9bc81ec9e67a
+  - name: item
+    uniqueID: 3490374733
     locked: 0
