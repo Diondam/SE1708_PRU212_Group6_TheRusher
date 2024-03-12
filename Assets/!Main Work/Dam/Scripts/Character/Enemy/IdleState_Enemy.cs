@@ -20,12 +20,12 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
         {
             base.OnStart();
             thisEnemy.anim?.SetBool("idle", true);
+            thisEnemy.canAttack = false;
             count = thisEnemy.moveRandomTime;
             startPos = thisEnemy.transform.position;
         }
 
         //change is only 1 or -1
-        private int change = -1;
         public Vector3 startPos;
 
         public override void OnUpdate()
@@ -60,10 +60,9 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
             {
                 count = 0;
                 thisEnemy.Flip();
-                change = change * -1;
                 startPos = thisEnemy.transform.position;
                 point = startPos;
-                point.x = point.x + rangeIdle * change;
+                point.x = point.x + rangeIdle * (thisEnemy.flip ? 1 : -1);
             }
         }
 

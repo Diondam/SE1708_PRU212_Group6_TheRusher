@@ -10,6 +10,7 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
     {
         public Animator anim = null;
         public GameObject effect;
+        float offsetEffect = 0.5f;
 
         public GameObject player;
         private Hero theHero;
@@ -29,7 +30,7 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
         public float attackRange = 2f;
         public float chaseRange = 5;
         public float speedToAttack = 1;
-        public bool attacking = false;
+        public bool canAttack = false;
         public bool flip = false;
         
         [Header("Sound Data")] 
@@ -55,6 +56,7 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
         private void Start()
         {
             healthPointTemp = healthPoint;
+            effect = Instantiate(effect, transform);
         }
 
 
@@ -96,6 +98,7 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
             if (direction.x > 0)
             {
                 localScale.x = flip ? 1 : -1;
+                
             }
 
             else if (direction.x < 0)
@@ -109,11 +112,11 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
         public void Flip()
         {
             var localScale = transform.localScale;
-            localScale.x = localScale.x * -1;
+            localScale.x = localScale.x * -1 *(flip ? -1 : 1);
             transform.localScale = localScale;
 
             var sliderScale = slider.transform.localScale;
-            sliderScale.x = sliderScale.x * -1;
+            sliderScale.x = sliderScale.x * -1 * (flip ? -1 : 1);
             slider.transform.localScale = sliderScale;
         }
 
@@ -156,18 +159,18 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
         void Attack()
         {
             theHero = player.GetComponent<Hero>();
-            if (!attacking)
+            if (!canAttack)
             {
                 anim?.SetTrigger("attack");
                 Invoke("DealingDamage", 0.65f);
                 Invoke("CanAttack", 0.7f);
-                attacking = true;
+                canAttack = true;
             }
         }
 
         void CanAttack()
         {
-            attacking = false;
+            canAttack = false;
         }
 
 
@@ -175,10 +178,21 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
         {
             if (isOKforDame)
             {
+                SpawnAttackEffect();
                 theHero.healthPoint -= damage;
             }
         }
 
+        void SpawnAttackEffect()
+        {
+            Vector3 spawnPosition;
+            spawnPosition = (Vector3.right+ Vector3.up) *offsetEffect * (flip ? 1 : -1);
+            if (spawnPosition.y<0) spawnPosition.y = spawnPosition.y * -1;
+            effect.transform.localPosition = spawnPosition;
+            effect.SetActive(false);
+            effect.SetActive(true);
+        }
+    
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.red;

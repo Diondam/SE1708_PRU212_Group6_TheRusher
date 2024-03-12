@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 278899791871206887}
   - component: {fileID: 3930227161902101128}
   - component: {fileID: 4188615227688316709}
+  - component: {fileID: -592433555298992461}
   m_Layer: 0
   m_Name: FinishGate
   m_TagString: Untagged
@@ -130,3 +131,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-592433555298992461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3198284895170876389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 263331b10a9328147ac5e91a730fb71c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

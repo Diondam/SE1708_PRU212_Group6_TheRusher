@@ -142,7 +142,7 @@ public class HeroKnight : MonoBehaviour {
 
             // Call one of three attack animations "Attack1", "Attack2", "Attack3"
             m_animator.SetTrigger("Attack" + m_currentAttack);
-
+            SpawnAttackEffect();
             // Reset timer
             m_timeSinceAttack = 0.0f;
         }
@@ -221,5 +221,15 @@ public class HeroKnight : MonoBehaviour {
             // Turn arrow in correct direction
             dust.transform.localScale = new Vector3(m_facingDirection, 1, 1);
         }
+    }
+
+    void SpawnAttackEffect()
+    {
+        Vector3 spawnPosition;
+        spawnPosition = (Vector3.right+ Vector3.up) * (hero.offsetEffect * m_facingDirection );
+        if (spawnPosition.y<0) spawnPosition.y = spawnPosition.y * -1;
+        hero.attackEffect.transform.localPosition = spawnPosition;
+        hero.attackEffect.SetActive(false);
+        hero.attackEffect.SetActive(true);
     }
 }
