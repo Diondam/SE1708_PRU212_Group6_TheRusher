@@ -4,6 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Missile
   - DiePoint
   layers:
   - Default
@@ -42,137 +43,97 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-<<<<<<< HEAD
-  - name: background
-    uniqueID: 1000131429
+  - name: backgroud
+    uniqueID: 2281297343
     locked: 0
   - name: mountains
-    uniqueID: 423894549
-    locked: 0
-  - name: ghost
-    uniqueID: 3251706175
-    locked: 0
-  - name: skeleton
-    uniqueID: 2299516529
-    locked: 0
-  - name: hell
-    uniqueID: 4288041215
-    locked: 0
-  - name: darkmage
-    uniqueID: 1556347629
-    locked: 0
-  - name: statue
-    uniqueID: 790107939
-    locked: 0
-  - name: bush-large
-    uniqueID: 3554637499
-    locked: 0
-  - name: bush-small(2)
-    uniqueID: 3823070329
-    locked: 0
-  - name: bush-small(1)
-    uniqueID: 3185452835
-    locked: 0
-  - name: bush-small
-    uniqueID: 3893264853
-    locked: 0
-  - name: bush-large(2)
-    uniqueID: 3930501699
-    locked: 0
-  - name: bush-large(1)
-    uniqueID: 2184424365
+    uniqueID: 2641526427
     locked: 0
   - name: tree-3
-    uniqueID: 1635555673
-    locked: 0
-  - name: tree-2
-    uniqueID: 3947059971
-    locked: 0
-  - name: tree-1
-    uniqueID: 490878697
-    locked: 0
-  - name: stone-3
-    uniqueID: 1496933417
-    locked: 0
-  - name: stone-4
-    uniqueID: 3148008769
-    locked: 0
-  - name: stone-2(3)
-    uniqueID: 2397931879
-    locked: 0
-  - name: stone-2(2)
-    uniqueID: 3612055151
-    locked: 0
-  - name: stone-2(1)
-    uniqueID: 2932124815
-    locked: 0
-  - name: stone-2
-    uniqueID: 52306667
+    uniqueID: 3859006467
     locked: 0
   - name: stone-1(1)
-    uniqueID: 1498407285
-    locked: 0
-  - name: stone-1
-    uniqueID: 1847419879
-    locked: 0
-  - name: tilemap_collison
-    uniqueID: 312438117
-    locked: 0
-  - name: tilemap_trap
-    uniqueID: 3267348839
+    uniqueID: 2867246187
     locked: 0
   - name: tilemap
-    uniqueID: 4105705829
+    uniqueID: 1520337363
     locked: 0
-  - name: hero
-    uniqueID: 2471487461
+  - name: tilemap_collison
+    uniqueID: 2900895261
     locked: 0
-  - name: restorepoint
-    uniqueID: 1775751329
+  - name: tilemap_trap
+    uniqueID: 933164497
+    locked: 0
+  - name: tree-2
+    uniqueID: 1927060147
+    locked: 0
+  - name: tree-1
+    uniqueID: 2716946855
+    locked: 0
+  - name: bush_large(2)
+    uniqueID: 623763461
+    locked: 0
+  - name: stone-2(1)
+    uniqueID: 1816148095
+    locked: 0
+  - name: bush-large(1)
+    uniqueID: 1080336923
+    locked: 0
+  - name: bush-small(1)
+    uniqueID: 4161441725
+    locked: 0
+  - name: stone-4
+    uniqueID: 3019398179
+    locked: 0
+  - name: bush-large(2)
+    uniqueID: 2784241711
+    locked: 0
+  - name: stone-2(3)
+    uniqueID: 3903336905
+    locked: 0
+  - name: statue
+    uniqueID: 1996760769
+    locked: 0
+  - name: stone-1
+    uniqueID: 2156778203
+    locked: 0
+  - name: bush-small(2)
+    uniqueID: 3605946755
+    locked: 0
+  - name: bush-small
+    uniqueID: 2738600189
+    locked: 0
+  - name: stone-2
+    uniqueID: 3396140929
+    locked: 0
+  - name: stone-3
+    uniqueID: 1383887551
     locked: 0
   - name: finishgate
-    uniqueID: 1420529945
+    uniqueID: 2874241095
     locked: 0
   - name: item
-    uniqueID: 3490374733
-=======
-  - name: bg
-    uniqueID: 2588093517
+    uniqueID: 609215935
     locked: 0
-  - name: mdgr
-    uniqueID: 2675621751
+  - name: restore
+    uniqueID: 2781910663
     locked: 0
-  - name: trap
-    uniqueID: 2197481351
+  - name: stone-2(2)
+    uniqueID: 3686061673
     locked: 0
-  - name: nocollision
-    uniqueID: 1918648201
+  - name: ghost
+    uniqueID: 3715381083
     locked: 0
-  - name: collision
-    uniqueID: 2963122547
+  - name: hell
+    uniqueID: 3427785491
     locked: 0
-  - name: water
-    uniqueID: 1417961727
+  - name: skeleton-1
+    uniqueID: 3059508581
     locked: 0
   - name: hero
-    uniqueID: 801680433
+    uniqueID: 2914737421
     locked: 0
-  - name: monster
-    uniqueID: 1137666649
-    locked: 0
-  - name: finishGate
-    uniqueID: 658265365
-    locked: 0
-  - name: canvasMonster
-    uniqueID: 800300647
-    locked: 0
-  - name: canvasHero
-    uniqueID: 2518181351
-    locked: 0
-  - name: buff
-    uniqueID: 2709164909
-    locked: 0
-  - name: New Layer 13
-    uniqueID: 2129107491
->>>>>>> ab750c9560c207e1f78b0b86c144ca2283f0cb98
+  - name: darkmage
+    uniqueID: 1199581737
+
     locked: 0
