@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - DiePoint
   layers:
   - Default
   - TransparentFX
@@ -40,4 +41,97 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: backgroud
+    uniqueID: 2281297343
+    locked: 0
+  - name: mountains
+    uniqueID: 2641526427
+    locked: 0
+  - name: tree-3
+    uniqueID: 3859006467
+    locked: 0
+  - name: stone-1(1)
+    uniqueID: 2867246187
+    locked: 0
+  - name: tilemap
+    uniqueID: 1520337363
+    locked: 0
+  - name: tilemap_collison
+    uniqueID: 2900895261
+    locked: 0
+  - name: tilemap_trap
+    uniqueID: 933164497
+    locked: 0
+  - name: tree-2
+    uniqueID: 1927060147
+    locked: 0
+  - name: tree-1
+    uniqueID: 2716946855
+    locked: 0
+  - name: bush_large(2)
+    uniqueID: 623763461
+    locked: 0
+  - name: stone-2(1)
+    uniqueID: 1816148095
+    locked: 0
+  - name: bush-large(1)
+    uniqueID: 1080336923
+    locked: 0
+  - name: bush-small(1)
+    uniqueID: 4161441725
+    locked: 0
+  - name: stone-4
+    uniqueID: 3019398179
+    locked: 0
+  - name: bush-large(2)
+    uniqueID: 2784241711
+    locked: 0
+  - name: stone-2(3)
+    uniqueID: 3903336905
+    locked: 0
+  - name: statue
+    uniqueID: 1996760769
+    locked: 0
+  - name: stone-1
+    uniqueID: 2156778203
+    locked: 0
+  - name: bush-small(2)
+    uniqueID: 3605946755
+    locked: 0
+  - name: bush-small
+    uniqueID: 2738600189
+    locked: 0
+  - name: stone-2
+    uniqueID: 3396140929
+    locked: 0
+  - name: stone-3
+    uniqueID: 1383887551
+    locked: 0
+  - name: finishgate
+    uniqueID: 2874241095
+    locked: 0
+  - name: item
+    uniqueID: 609215935
+    locked: 0
+  - name: restore
+    uniqueID: 2781910663
+    locked: 0
+  - name: stone-2(2)
+    uniqueID: 3686061673
+    locked: 0
+  - name: ghost
+    uniqueID: 3715381083
+    locked: 0
+  - name: hell
+    uniqueID: 3427785491
+    locked: 0
+  - name: skeleton-1
+    uniqueID: 3059508581
+    locked: 0
+  - name: hero
+    uniqueID: 2914737421
+    locked: 0
+  - name: darkmage
+    uniqueID: 1199581737
     locked: 0
