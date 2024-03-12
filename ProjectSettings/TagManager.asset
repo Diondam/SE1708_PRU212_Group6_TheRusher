@@ -53,15 +53,18 @@ TagManager:
   - name: water
     uniqueID: 3812067935
     locked: 0
-  - name: collision
-    uniqueID: 1567820115
-    locked: 0
   - name: hero
     uniqueID: 2633274173
     locked: 0
   - name: noCollision
     uniqueID: 4033462825
     locked: 0
+  - name: collision
+    uniqueID: 1567820115
+    locked: 0
   - name: monster
     uniqueID: 386651139
+    locked: 0
+  - name: canvas
+    uniqueID: 1475027673
     locked: 0
