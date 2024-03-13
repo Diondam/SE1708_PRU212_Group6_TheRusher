@@ -13,8 +13,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Player
+  - Enemy
   - 
   - 
   - 
@@ -135,5 +135,4 @@ TagManager:
     locked: 0
   - name: darkmage
     uniqueID: 1199581737
-
     locked: 0

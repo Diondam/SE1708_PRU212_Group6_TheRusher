@@ -16,12 +16,17 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
         public override void OnStart()
         {
             base.OnStart();
+            
         }
 
         public override void OnUpdate()
         {
             base.OnUpdate();
             thisEnemy.MoveToPlayer();
+            if (thisEnemy is BulletEnemy.BulletEnemy bulletEnemy)
+            {
+                bulletEnemy?.Attack();
+            }
             var hero = thisEnemy.player.GetComponent<Hero>();
             //đánh chết player
             if (hero.healthPoint <= 0 && thisEnemy.currentState == thisEnemy.attackState)

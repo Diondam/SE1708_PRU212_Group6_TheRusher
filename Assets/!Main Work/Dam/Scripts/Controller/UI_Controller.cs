@@ -10,9 +10,9 @@ namespace _Main_Work.Dam.Scripts
         public GameObject gameStart;
         public GameObject gameSettings;
         public GameObject gameEnd;
-
         public Button pauseGame;
         public Button startButton;
+        public Button resumeButton;
 
         public Slider BGSoundVolume;
         public Slider FXSoundVolume;
@@ -24,7 +24,22 @@ namespace _Main_Work.Dam.Scripts
         }
         public void OpenStartGame()
         {
-            gameStart.SetActive(true);
+            gameStart.SetActive(false);
+            StartCoroutine("FadeOpen");
+        }
+
+        IEnumerator FadeOpen()
+        {
+            var canvas =gameStart.GetComponent<CanvasGroup>();
+            canvas.alpha = 0;
+            float time = 0;
+            while (time < 2)
+            {
+                time += Time.deltaTime;
+                canvas.alpha = time/2;
+                yield return null;
+            }
+            
         }
 
 
@@ -38,7 +53,12 @@ namespace _Main_Work.Dam.Scripts
         }
         public void OpenSetting()
         {
-            gameSettings.SetActive(true);
+            gameSettings.SetActive(!gameSettings.activeSelf);
+            if (!gameSettings.activeSelf)
+            {
+            startButton.gameObject.SetActive(true);
+            resumeButton.gameObject.SetActive(true);
+            }
         }
 
         public void OpenPause()

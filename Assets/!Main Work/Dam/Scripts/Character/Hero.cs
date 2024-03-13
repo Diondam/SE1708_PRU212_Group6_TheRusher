@@ -16,16 +16,19 @@ namespace _Main_Work.Dam.Scripts.Character
         public HeroKnight heroController;
         public GameObject attackEffect;
         public float offsetEffect = 0.7f;
+
+        public DieState_Hero dieState;
         protected override void Awake()
         {
             base.Awake();
             var idleState = new IdelState_Hero(this, changeStateMachine);
-            currentState = changeStateMachine.ChangeToState(idleState);
+            dieState = new DieState_Hero(this, changeStateMachine);
+            changeStateMachine.ChangeToState(idleState);
             temp = healthPoint;
-            gm = FindObjectOfType<GameManager>();
             heroController = GetComponent<HeroKnight>();
-            transform.position = gm.diePoint;
-            
+            gm = FindObjectOfType<GameManager>();
+            if(gm ==null) print("gm null");
+            transform.position = gm.diePoint==null? Vector3.zero : gm.diePoint;
         }
 
         private void Start()
@@ -45,11 +48,12 @@ namespace _Main_Work.Dam.Scripts.Character
                 var soundControler = gm.soundController;
                 soundControler.heroSpeaker.PlayOneShot(soundControler.heroDieSound);
 
+                changeStateMachine.ChangeToState(dieState);
                 gm.diePoint = transform.position;
                 GetComponent<HeroKnight>().enabled = false;
                 anim.SetBool("noBlood", false);
                 anim.SetTrigger("Death");
-                Invoke("EndGame", 3f);
+                Invoke("EndGame", 1.1f);
             }
             
             if (Input.GetMouseButtonDown(0))
@@ -65,6 +69,12 @@ namespace _Main_Work.Dam.Scripts.Character
             gm.EndGame();
         }
 
+        public void TakeDamage(int damage)
+        {
+            healthPoint -= damage;
+            anim.SetTrigger("Hurt");
+        }
+        
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.gameObject.CompareTag("DiePoint"))

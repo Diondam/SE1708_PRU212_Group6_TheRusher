@@ -20,7 +20,7 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
         {
             base.OnStart();
             thisEnemy.anim?.SetBool("idle", true);
-            thisEnemy.canAttack = false;
+            thisEnemy.canAttack = true;
             count = thisEnemy.moveRandomTime;
             startPos = thisEnemy.transform.position;
         }
@@ -41,6 +41,7 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
 
         Vector3 point;
 
+        int changeDirection = 1;
         private void MoveRandom(ref float brakeTimeIdel, ref float rangeIdle)
         {
             count += Time.deltaTime;
@@ -59,10 +60,11 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
             if (count >= 2 * brakeTimeIdel)
             {
                 count = 0;
+                changeDirection *= -1;
                 thisEnemy.Flip();
                 startPos = thisEnemy.transform.position;
                 point = startPos;
-                point.x = point.x + rangeIdle * (thisEnemy.flip ? 1 : -1);
+                point.x = point.x + rangeIdle * changeDirection;
             }
         }
 

@@ -10,31 +10,27 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
     {
         public Animator anim = null;
         public GameObject effect;
-        float offsetEffect = 0.5f;
-
+        public float offsetEffect = 0.5f;
+        public GameManager gm;
         public GameObject player;
-        private Hero theHero;
-        
-        [Header("Idel")] 
-        public float moveRandomTime = 4;
+        protected Hero theHero;
+
+        [Header("Idel")] public float moveRandomTime = 4;
         public float rangeIdle = 1;
-        
-        [Header("Health")] 
-        public int damage = 2;
+
+        [Header("Health")] public int damage = 2;
         public int healthPoint = 100;
         public int healthPointTemp;
         public float timeToDie = 0.9f;
         public Slider slider;
-        
-        [Header("Attack")] 
-        public float attackRange = 2f;
+
+        [Header("Attack")] public float attackRange = 2f;
         public float chaseRange = 5;
         public float speedToAttack = 1;
         public bool canAttack = false;
         public bool flip = false;
-        
-        [Header("Sound Data")] 
-        public SoundData enemySound;
+
+        [Header("Sound Data")] public SoundData enemySound;
 
         public IdleState_Enemy idelState { get; private set; }
         public AttackState_Enemy attackState { get; private set; }
@@ -50,11 +46,20 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
             anim = GetComponent<Animator>() ?? null;
             changeStateMachine.ChangeToState(idelState);
             player = GameObject.FindGameObjectWithTag("Player");
+            gm = FindObjectOfType<GameManager>();
             print("Enemy Awake");
         }
 
-        private void Start()
+        protected virtual void Start()
         {
+            if (flip)
+            {
+                var localScale = transform.localScale;
+                localScale.x *= -1;
+                transform.localScale = localScale;
+                FlipSlider();
+            }
+
             healthPointTemp = healthPoint;
             effect = Instantiate(effect, transform);
         }
@@ -84,39 +89,59 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
             return distace <= chaseRange;
         }
 
-
+        bool touched = false;
+        protected Vector3 directionE;
         public void MoveToPlayer()
         {
             var direction = (player.transform.position - transform.position).normalized;
+            directionE=direction;
             direction.y = 0;
-            transform.Translate(direction * (speedToAttack * Time.deltaTime));
-
-            print("moving to player");
-
+            if (!touched)
+            {
+                transform.Translate(direction * (speedToAttack * Time.deltaTime));
+                print("move to player");
+            }
             //flip by direction
             var localScale = transform.localScale;
+
             if (direction.x > 0)
             {
-                localScale.x = flip ? 1 : -1;
-                
+                localScale.x = flip ? -1 : 1;
+                if (!f)
+                {
+                    print("left");
+                    FlipSlider();
+                    f = true;
+                }
             }
-
             else if (direction.x < 0)
             {
-                localScale.x = flip ? -1 : 1;
+                localScale.x = flip ? 1 : -1;
+                if (f)
+                {
+                    print("right");
+                    FlipSlider();
+                    f = false;
+                }
             }
 
             transform.localScale = localScale;
         }
 
+        bool f = false;
+
         public void Flip()
         {
             var localScale = transform.localScale;
-            localScale.x = localScale.x * -1 *(flip ? -1 : 1);
+            localScale.x = localScale.x * -1;
             transform.localScale = localScale;
+            FlipSlider();
+        }
 
+        void FlipSlider()
+        {
             var sliderScale = slider.transform.localScale;
-            sliderScale.x = sliderScale.x * -1 * (flip ? -1 : 1);
+            sliderScale.x = sliderScale.x * -1;
             slider.transform.localScale = sliderScale;
         }
 
@@ -130,6 +155,7 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
         {
             if (other.gameObject.CompareTag("Player"))
             {
+                touched = true;
                 isOKforDame = true;
                 Attack();
                 if (Input.GetMouseButtonDown(0))
@@ -151,26 +177,29 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
 
         private void OnCollisionExit2D(Collision2D other)
         {
+            touched = false;
             isOKforDame = false;
         }
 
         bool isOKforDame = false;
+        public bool isDie = false;
 
         void Attack()
         {
-            theHero = player.GetComponent<Hero>();
-            if (!canAttack)
+            if (canAttack && currentState!=dieState)
             {
+                theHero = player.GetComponent<Hero>();
                 anim?.SetTrigger("attack");
+                gm.soundController.enemySpeaker.PlayOneShot(enemySound.AttackSound);
                 Invoke("DealingDamage", 0.65f);
                 Invoke("CanAttack", 0.7f);
-                canAttack = true;
+                canAttack = false;
             }
         }
 
         void CanAttack()
         {
-            canAttack = false;
+            canAttack = true;
         }
 
 
@@ -179,20 +208,20 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
             if (isOKforDame)
             {
                 SpawnAttackEffect();
-                theHero.healthPoint -= damage;
+                theHero.TakeDamage(damage);
             }
         }
 
         void SpawnAttackEffect()
         {
             Vector3 spawnPosition;
-            spawnPosition = (Vector3.right+ Vector3.up) *offsetEffect * (flip ? 1 : -1);
-            if (spawnPosition.y<0) spawnPosition.y = spawnPosition.y * -1;
+            spawnPosition = (Vector3.right*(flip ? -1 : 1) + Vector3.up) * offsetEffect;
+            if (spawnPosition.y < 0) spawnPosition.y = spawnPosition.y * -1;
             effect.transform.localPosition = spawnPosition;
             effect.SetActive(false);
             effect.SetActive(true);
         }
-    
+
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.red;

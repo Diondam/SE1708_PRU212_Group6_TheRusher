@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e38f9e40e4f694143959a1d014edb0dc, type: 3}
   m_Name: Sleketon
   m_EditorClassIdentifier: 
-  JumpSound: {fileID: 0}
-  DieSound: {fileID: 0}
-  AttackSound: {fileID: 0}
-  MoveSound: {fileID: 0}
+  IdleSound: {fileID: 0}
+  DieSound: {fileID: 8300000, guid: 4f99cc9880447d54f899cc448d1c1388, type: 3}
+  AttackSound: {fileID: 8300000, guid: 5bbd1105e782b9440b0bb3117fdd4b59, type: 3}
+  MoveSound: {fileID: 8300000, guid: 9e13db95f3160434686214acbfe88f27, type: 3}

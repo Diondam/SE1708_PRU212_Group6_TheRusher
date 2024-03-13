@@ -16,7 +16,7 @@ namespace _Main_Work.Dam.Scripts
         public int level = 1;
         private string sceneNameToLoad = "level";
         public string arbitraryNameScene ;
-        public Vector3 diePoint = new Vector3(0,0.7f,0);
+        public Vector3 diePoint = new Vector3(0,0f,0);
         
         
         private void Awake()
@@ -28,10 +28,8 @@ namespace _Main_Work.Dam.Scripts
 
         void Start()
         {
-            
             uiController.OpenStartGame();
-            soundController.PlayBGSound();
-
+            soundController.BGSpeaker.PlayOneShot(soundController.introSound);
         }
 
       
@@ -50,6 +48,7 @@ namespace _Main_Work.Dam.Scripts
         {
             LoadScene(1);
             uiController.gameStart.SetActive(false);
+            soundController.PlayBGSound(level);
         }
       
         public void Resume()
@@ -70,6 +69,7 @@ namespace _Main_Work.Dam.Scripts
         {
             level++;
             LoadScene(level);
+            soundController.PlayBGSound(level);
             SavePlayerData();
         }
         public void LoadScene(int level)
@@ -92,9 +92,11 @@ namespace _Main_Work.Dam.Scripts
         {
             string json = PlayerPrefs.GetString("TransformData");
             if (!string.IsNullOrEmpty(json))
-            {
+            // {
+            //     diePoint = JsonUtility.FromJson<Vector3>(json);
+            // }
                 diePoint = JsonUtility.FromJson<Vector3>(json);
-            }
+            print("load position");
             if (PlayerPrefs.HasKey("Level"))
             {
                 level = PlayerPrefs.GetInt("Level");

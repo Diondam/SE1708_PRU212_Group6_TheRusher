@@ -15,8 +15,10 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
         public override void OnStart()
         {
             base.OnStart();
+            thisEnemy.isDie = true;
             thisEnemy.anim?.SetBool("idle", false);
             thisEnemy.anim?.SetTrigger("die");
+            thisEnemy.gm.soundController.enemySpeaker.PlayOneShot(thisEnemy.enemySound.DieSound);
         }
 
         public override void OnUpdate()
