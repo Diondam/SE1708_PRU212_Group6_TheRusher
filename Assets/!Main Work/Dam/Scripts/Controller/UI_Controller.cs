@@ -34,7 +34,7 @@ namespace _Main_Work.Dam.Scripts
 
         public void OpenStartGame()
         {
-            gameStart.SetActive(false);
+            gameStart.SetActive(true);
             StartCoroutine("FadeOpen");
         }
 
