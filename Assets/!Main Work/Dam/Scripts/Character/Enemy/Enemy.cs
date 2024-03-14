@@ -62,13 +62,22 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
 
             healthPointTemp = healthPoint;
             effect = Instantiate(effect, transform);
+            chaseRange = attackRange;
+            tempPos1 = transform.position.x + attackRange;
+            tempPos2 = transform.position.x - attackRange;
         }
 
+        private float tempPos1;
+        private float tempPos2;
 
         protected override void Update()
         {
             base.Update();
             UpdateUI();
+            if (transform.position.x > tempPos1 || transform.position.x < tempPos2)
+            {
+                canMove = false;
+            }
         }
 
         void UpdateUI()
@@ -89,24 +98,27 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
             return distace <= chaseRange;
         }
 
+        bool canMove = true;
         bool touched = false;
         protected Vector3 directionE;
+
         public void MoveToPlayer()
         {
             var direction = (player.transform.position - transform.position).normalized;
-            directionE=direction;
+            directionE = direction;
             direction.y = 0;
-            if (!touched)
+            if (!touched && canMove)
             {
                 transform.Translate(direction * (speedToAttack * Time.deltaTime));
                 print("move to player");
             }
+
             //flip by direction
             var localScale = transform.localScale;
 
             if (direction.x > 0)
             {
-                localScale.x = flip ? -1 : 1;
+                localScale.x =-1 * Mathf.Abs(localScale.x);
                 if (!f)
                 {
                     print("left");
@@ -116,7 +128,7 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
             }
             else if (direction.x < 0)
             {
-                localScale.x = flip ? 1 : -1;
+                localScale.x = 1 *  Mathf.Abs(localScale.x);
                 if (f)
                 {
                     print("right");
@@ -186,7 +198,7 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
 
         void Attack()
         {
-            if (canAttack && currentState!=dieState)
+            if (canAttack && currentState != dieState)
             {
                 theHero = player.GetComponent<Hero>();
                 anim?.SetTrigger("attack");
@@ -215,7 +227,7 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
         void SpawnAttackEffect()
         {
             Vector3 spawnPosition;
-            spawnPosition = (Vector3.right*(flip ? -1 : 1) + Vector3.up) * offsetEffect;
+            spawnPosition = (Vector3.right * (flip ? -1 : 1) + Vector3.up) * offsetEffect;
             if (spawnPosition.y < 0) spawnPosition.y = spawnPosition.y * -1;
             effect.transform.localPosition = spawnPosition;
             effect.SetActive(false);
