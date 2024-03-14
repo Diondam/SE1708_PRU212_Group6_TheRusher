@@ -167,21 +167,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
-  effect: {fileID: 0}
+  effect: {fileID: 3983859798448929519, guid: 5940e4d7382ce22408f8c32ff2a4ed61, type: 3}
+  offsetEffect: 0.5
+  gm: {fileID: 0}
   player: {fileID: 0}
   moveRandomTime: 4
   rangeIdle: 1
   damage: 2
   healthPoint: 100
   healthPointTemp: 0
-  timeToDie: 0.9
-  slider: {fileID: 8154671502963823668}
-  attackRange: 2
-  chaseRange: 5
-  speedToAttack: 1
-  attacking: 0
-  flip: 1
-  enemySound: {fileID: 0}
+  timeToDie: 1
+  slider: {fileID: 0}
+  attackRange: 1.36
+  chaseRange: 1.96
+  speedToAttack: 0.29
+  canAttack: 0
+  flip: 0
+  enemySound: {fileID: 11400000, guid: d1c5857e31c3c8c458e01293f034d4cd, type: 2}
+  isDie: 0
 --- !u!1001 &2959654253405217164
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -316,14 +319,3 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5599497706512799784, guid: 89e14cb50f8ca0d41a977f00ee850468, type: 3}
   m_PrefabInstance: {fileID: 2959654253405217164}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8154671502963823668 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6357388713011049912, guid: 89e14cb50f8ca0d41a977f00ee850468, type: 3}
-  m_PrefabInstance: {fileID: 2959654253405217164}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 13.54, y: -3.18, z: 0.06541124}
-  m_LocalScale: {x: 0.9583, y: 0.94990194, z: 1}
+  m_LocalScale: {x: 0.7190125, y: 0.7482377, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6571416546506743709}
@@ -49,21 +49,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
-  effect: {fileID: 0}
+  effect: {fileID: 3983859798448929519, guid: 5940e4d7382ce22408f8c32ff2a4ed61, type: 3}
+  offsetEffect: 0.5
+  gm: {fileID: 0}
   player: {fileID: 0}
   moveRandomTime: 4
   rangeIdle: 1
-  damage: 2
+  damage: 10
   healthPoint: 100
   healthPointTemp: 0
-  timeToDie: 0.9
-  slider: {fileID: 5674199823410934285}
-  attackRange: 2
-  chaseRange: 5
+  timeToDie: 1
+  slider: {fileID: 8942739733275991292, guid: 32804015135d6e84f9bb09d57f5dbfbd, type: 3}
+  attackRange: 0.96
+  chaseRange: 1.93
   speedToAttack: 1
-  attacking: 0
-  flip: 1
-  enemySound: {fileID: 0}
+  canAttack: 0
+  flip: 0
+  enemySound: {fileID: 11400000, guid: d1c5857e31c3c8c458e01293f034d4cd, type: 2}
+  isDie: 0
 --- !u!212 &930653028773607546
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -169,7 +172,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.080198556, y: 0.37048048}
+  m_Offset: {x: 0.14913896, y: 0.37048048}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -180,7 +183,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.45497125, y: 0.74106085}
+  m_Size: {x: 0.31709045, y: 0.74106085}
   m_EdgeRadius: 0
 --- !u!1001 &1623325526081390517
 PrefabInstance:
@@ -256,11 +259,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5599497706512799784, guid: 89e14cb50f8ca0d41a977f00ee850468, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.04
+      value: 0.16
       objectReference: {fileID: 0}
     - target: {fileID: 5599497706512799784, guid: 89e14cb50f8ca0d41a977f00ee850468, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.758
+      value: 0.62
       objectReference: {fileID: 0}
     - target: {fileID: 5599497706512799784, guid: 89e14cb50f8ca0d41a977f00ee850468, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -303,17 +306,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89e14cb50f8ca0d41a977f00ee850468, type: 3}
---- !u!114 &5674199823410934285 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6357388713011049912, guid: 89e14cb50f8ca0d41a977f00ee850468, type: 3}
-  m_PrefabInstance: {fileID: 1623325526081390517}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &6571416546506743709 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5599497706512799784, guid: 89e14cb50f8ca0d41a977f00ee850468, type: 3}
