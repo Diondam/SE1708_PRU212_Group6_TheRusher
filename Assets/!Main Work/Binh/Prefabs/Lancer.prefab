@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 20
   m_Sprite: {fileID: 21300000, guid: 155f7a9722229cd43bc7b8dbf92fef3e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -123,6 +123,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
   effect: {fileID: 0}
+  offsetEffect: 0.5
+  gm: {fileID: 0}
   player: {fileID: 0}
   moveRandomTime: 4
   rangeIdle: 1
@@ -134,9 +136,10 @@ MonoBehaviour:
   attackRange: 2
   chaseRange: 5
   speedToAttack: 1
-  attacking: 0
+  canAttack: 0
   flip: 1
   enemySound: {fileID: 0}
+  isDie: 0
 --- !u!95 &4063375717268289626
 Animator:
   serializedVersion: 5
