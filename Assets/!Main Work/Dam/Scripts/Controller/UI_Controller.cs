@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -5,7 +6,7 @@ using UnityEngine.UI;
 
 namespace _Main_Work.Dam.Scripts
 {
-    public class UI_Controller:MonoBehaviour
+    public class UI_Controller : MonoBehaviour
     {
         public GameObject gameStart;
         public GameObject gameSettings;
@@ -18,10 +19,19 @@ namespace _Main_Work.Dam.Scripts
         public Slider FXSoundVolume;
 
         public Image DelayImage;
+
+        private GameManager gm;
+
+        private void Start()
+        {
+            gm = FindObjectOfType<GameManager>();
+        }
+
         public void UIOnUpdate()
         {
             BGSoundVolume.value = PlayerPrefs.GetFloat("BGSoundVolume");
         }
+
         public void OpenStartGame()
         {
             gameStart.SetActive(false);
@@ -30,16 +40,15 @@ namespace _Main_Work.Dam.Scripts
 
         IEnumerator FadeOpen()
         {
-            var canvas =gameStart.GetComponent<CanvasGroup>();
+            var canvas = gameStart.GetComponent<CanvasGroup>();
             canvas.alpha = 0;
             float time = 0;
             while (time < 2)
             {
                 time += Time.deltaTime;
-                canvas.alpha = time/2;
+                canvas.alpha = time / 2;
                 yield return null;
             }
-            
         }
 
 
@@ -49,15 +58,23 @@ namespace _Main_Work.Dam.Scripts
             yield return new WaitForSeconds(0.5f);
             DelayImage.gameObject.SetActive(false);
             yield return new WaitForSeconds(0.1f);
-
         }
+
+        private int temp = 1;
+
         public void OpenSetting()
         {
             gameSettings.SetActive(!gameSettings.activeSelf);
-            if (!gameSettings.activeSelf)
+            if (temp == 1)
             {
-            startButton.gameObject.SetActive(true);
-            resumeButton.gameObject.SetActive(true);
+                gm.Pause();
+                temp = -1;
+            }
+
+            if (temp == -1)
+            {
+                gm.Resume();
+                temp = 1;
             }
         }
 
@@ -70,6 +87,5 @@ namespace _Main_Work.Dam.Scripts
         {
             gameEnd.SetActive(true);
         }
-      
     }
 }

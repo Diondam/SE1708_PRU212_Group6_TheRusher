@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/!Main Work/Dam/Scenes/template.unity
     guid: b258785bdb859b14296a3572f959fb84
   - enabled: 1
+    path: Assets/!Main Work/Dam/Scenes/level0.unity
+    guid: 98b4971fe82b21a418f28dd7915a391d
+  - enabled: 1
     path: Assets/!Main Work/Dam/Scenes/level1.unity
     guid: b3f9c2c431a3d7e4d89c4d9d39edb2df
   - enabled: 1

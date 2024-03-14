@@ -8,31 +8,41 @@ namespace _Main_Work.Dam.Scripts
     {
         public Hero theHero;
         public GameObject effect;
+        public float timedelay = 2f;
+        public float speedOriginal;
         private void Start()
         {
             theHero = GameObject.FindGameObjectWithTag("Player").GetComponent<Hero>();
+            speedOriginal = theHero.heroController.m_speed;
         }
 
         private void OnEnable()
         {
             transform.localScale = transform.localScale * 1.5f;
         }
-
-
-        private void OnTriggerStay(Collider other)
+        public float tempTime = 0f;
+        private void OnTriggerStay2D(Collider2D other)
         {
             if (other.gameObject.CompareTag("Player"))
             {
-                theHero.TakeDamage(5);
-                theHero.heroController.m_speed = (theHero.heroController.m_speed / 2);
+                
+                tempTime += Time.deltaTime;
+                if(tempTime>timedelay)
+                {
+                    print("va cham nguoi choi");
+                    theHero.TakeDamage(5);
+                    theHero.heroController.m_speed = Mathf.Sqrt(theHero.heroController.m_speed);
+                    tempTime = 0f;
+                }
+                
             }
         }
     
-        private void OnTriggerExit(Collider other)
+        private void OnTriggerExit2D(Collider2D other)
         {
             if (other.gameObject.CompareTag("Player"))
             {
-                theHero.heroController.m_speed = (theHero.heroController.m_speed * 2);
+                theHero.heroController.m_speed = speedOriginal;
             }
         }
     }

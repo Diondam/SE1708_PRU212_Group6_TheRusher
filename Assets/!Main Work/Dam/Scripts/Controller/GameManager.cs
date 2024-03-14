@@ -13,7 +13,7 @@ namespace _Main_Work.Dam.Scripts
         public SoundController soundController;
         [Space]
         public Enemy enemy;
-        public int level = 1;
+        public int level = 0;
         private string sceneNameToLoad = "level";
         public string arbitraryNameScene ;
         public Vector3 diePoint = new Vector3(0,0f,0);
@@ -46,7 +46,7 @@ namespace _Main_Work.Dam.Scripts
 
         public void StartGame()
         {
-            LoadScene(1);
+            LoadScene(0);
             uiController.gameStart.SetActive(false);
             soundController.PlayBGSound(level);
         }

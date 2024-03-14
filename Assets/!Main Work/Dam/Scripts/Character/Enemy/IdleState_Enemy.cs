@@ -45,11 +45,12 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
         private void MoveRandom(ref float brakeTimeIdel, ref float rangeIdle)
         {
             count += Time.deltaTime;
-            if (count < brakeTimeIdel)
+            if (count < brakeTimeIdel && !thisEnemy.CheckMove())
             {
                 thisEnemy.anim?.SetBool("idle", false);
                 thisEnemy.anim?.SetBool("move", true);
                 thisEnemy.transform.position = Vector3.Lerp(startPos, point, count / brakeTimeIdel);
+                thisEnemy.ConvincePos();
             }
             else
             {

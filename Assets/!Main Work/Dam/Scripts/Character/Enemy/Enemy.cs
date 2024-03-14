@@ -1,6 +1,4 @@
-using System;
 using _Main_Work.Dam.Scripts.FSM;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -74,10 +72,7 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
         {
             base.Update();
             UpdateUI();
-            if (transform.position.x > tempPos1 || transform.position.x < tempPos2)
-            {
-                canMove = false;
-            }
+            ConvincePos();
         }
 
         void UpdateUI()
@@ -88,7 +83,6 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
         public bool CheckAttack()
         {
             float distace = Vector2.Distance(transform.position, player.transform.position);
-            //print($"distance: {distace}");
             return distace <= attackRange;
         }
 
@@ -98,19 +92,43 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
             return distace <= chaseRange;
         }
 
-        bool canMove = true;
         bool touched = false;
         protected Vector3 directionE;
+
+        public bool CheckMove()
+        {
+            //nằm ngoài
+            return (transform.position.x > tempPos1 || transform.position.x < tempPos2);
+        }
+
+        public void ConvincePos()
+        {
+            var pos = transform.position;
+            if (pos.x > tempPos1)
+            {
+                Vector3 tempPos = new Vector3(pos.x - convinceAmount, pos.y, pos.z);
+                transform.position = tempPos;
+            }
+
+            if (pos.x < tempPos2)
+            {
+                Vector3 tempPos = new Vector3(pos.x + convinceAmount, pos.y, pos.z);
+                transform.position = tempPos;
+            }
+        }
+
+        public float convinceAmount = 0.08f;
 
         public void MoveToPlayer()
         {
             var direction = (player.transform.position - transform.position).normalized;
             directionE = direction;
             direction.y = 0;
-            if (!touched && canMove)
+            if (!touched && !CheckMove())
             {
                 transform.Translate(direction * (speedToAttack * Time.deltaTime));
                 print("move to player");
+                ConvincePos();
             }
 
             //flip by direction
@@ -118,7 +136,7 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
 
             if (direction.x > 0)
             {
-                localScale.x =-1 * Mathf.Abs(localScale.x);
+                localScale.x = -1 * Mathf.Abs(localScale.x);
                 if (!f)
                 {
                     print("left");
@@ -128,7 +146,7 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
             }
             else if (direction.x < 0)
             {
-                localScale.x = 1 *  Mathf.Abs(localScale.x);
+                localScale.x = 1 * Mathf.Abs(localScale.x);
                 if (f)
                 {
                     print("right");
@@ -240,6 +258,12 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
             Gizmos.DrawWireSphere(this.transform.position, attackRange);
             Gizmos.color = Color.black;
             Gizmos.DrawWireSphere(this.transform.position, chaseRange);
+
+            var temp = new Vector3(tempPos1, 0, 0);
+            var temppp = new Vector3(tempPos2, 0, 0);
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawLine(temp, temp + Vector3.up * 5);
+            Gizmos.DrawLine(temppp, temppp + Vector3.up * 5);
         }
     }
 }
