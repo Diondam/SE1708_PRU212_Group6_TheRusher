@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/!Main Work/Dam/Scenes/level5.unity
     guid: d9924b2af2171014f95935f296c0a26e
+  - enabled: 1
+    path: Assets/!Main Work/Dam/Scenes/level6.unity
+    guid: f5ce028a384dcfe4db4b1128ca87d9da
   m_configObjects: {}

@@ -46,7 +46,7 @@ namespace _Main_Work.Dam.Scripts
 
         public void StartGame()
         {
-            LoadScene(0);
+            LoadScene(level);
             uiController.gameStart.SetActive(false);
             soundController.PlayBGSound(level);
         }
@@ -59,11 +59,15 @@ namespace _Main_Work.Dam.Scripts
 
         public void ReStart()
         {
+            uiController.OpenVictory(false);
+
             //TODO: tắt 2 cái trước rồi mới load
             uiController.DelayImage.gameObject.SetActive(true);
             uiController.gameEnd.SetActive(false);
-            LoadPlayerData();
-            LoadScene(level);
+            Time.timeScale = 1;
+            //LoadPlayerData();
+            SceneManager.LoadScene("level"+ level, LoadSceneMode.Additive);
+
         }
         public void LoadLevel()
         {
@@ -74,8 +78,18 @@ namespace _Main_Work.Dam.Scripts
         }
         public void LoadScene(int level)
         {
+            if (this.level == 6)
+            {
+                uiController.OpenVictory(true);
+                return;
+            }
             StartCoroutine(uiController.OpenDelayScene());
-            SceneManager.LoadScene("level"+ level);
+            if (this.level > 0)
+            {
+            SceneManager.UnloadSceneAsync("level" + (this.level-1));
+                
+            }
+            SceneManager.LoadSceneAsync("level"+ level, LoadSceneMode.Additive);
         }
         
         void SavePlayerData()
@@ -92,10 +106,9 @@ namespace _Main_Work.Dam.Scripts
         {
             string json = PlayerPrefs.GetString("TransformData");
             if (!string.IsNullOrEmpty(json))
-            // {
-            //     diePoint = JsonUtility.FromJson<Vector3>(json);
-            // }
+            {
                 diePoint = JsonUtility.FromJson<Vector3>(json);
+            }
             print("load position");
             if (PlayerPrefs.HasKey("Level"))
             {
@@ -112,6 +125,7 @@ namespace _Main_Work.Dam.Scripts
             Time.timeScale = 0;
             SavePlayerData();
             uiController.OpenEndGame();
+            SceneManager.UnloadSceneAsync("level" + level);
         }
 
         public void Pause()

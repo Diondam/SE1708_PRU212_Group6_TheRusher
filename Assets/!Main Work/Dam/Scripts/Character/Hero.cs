@@ -27,8 +27,10 @@ namespace _Main_Work.Dam.Scripts.Character
             temp = healthPoint;
             heroController = GetComponent<HeroKnight>();
             gm = FindObjectOfType<GameManager>();
-            if(gm ==null) print("gm null");
-            transform.position = gm.diePoint==null? Vector3.zero : gm.diePoint;
+            // if(gm ==null) print("gm null");
+            // transform.position = gm.diePoint==null? Vector3.zero : gm.diePoint;
+            transform.position = new Vector3(0,0.2f, 0);
+            print("hero awake");
         }
 
         private void Start()
@@ -53,7 +55,7 @@ namespace _Main_Work.Dam.Scripts.Character
                 GetComponent<HeroKnight>().enabled = false;
                 anim.SetBool("noBlood", false);
                 anim.SetTrigger("Death");
-                Invoke("EndGame", 1.1f);
+                Invoke("EndGame", 1);
             }
             
             if (Input.GetMouseButtonDown(0))

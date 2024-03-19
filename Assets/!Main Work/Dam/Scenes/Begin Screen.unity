@@ -199,6 +199,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 246465742988811890, guid: f512830284154464ba1bcdbae726f7d6, type: 3}
+      propertyPath: victory
+      value: 
+      objectReference: {fileID: 2048940426}
     - target: {fileID: 504140189186274298, guid: f512830284154464ba1bcdbae726f7d6, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -241,10 +245,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3879881517125087980, guid: f512830284154464ba1bcdbae726f7d6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5910610890850849181, guid: f512830284154464ba1bcdbae726f7d6, type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -344,6 +344,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2048940426 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7235888717393629043, guid: f512830284154464ba1bcdbae726f7d6, type: 3}
+  m_PrefabInstance: {fileID: 559824057}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

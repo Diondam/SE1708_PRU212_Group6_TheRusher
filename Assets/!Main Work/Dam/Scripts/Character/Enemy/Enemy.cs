@@ -134,7 +134,7 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
             //flip by direction
             var localScale = transform.localScale;
 
-            if (direction.x > 0)
+            if (direction.x < 0)
             {
                 localScale.x = -1 * Mathf.Abs(localScale.x);
                 if (!f)
@@ -144,7 +144,7 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
                     f = true;
                 }
             }
-            else if (direction.x < 0)
+            else if (direction.x > 0)
             {
                 localScale.x = 1 * Mathf.Abs(localScale.x);
                 if (f)

@@ -11,6 +11,9 @@ namespace _Main_Work.Dam.Scripts
         public GameObject gameStart;
         public GameObject gameSettings;
         public GameObject gameEnd;
+        public GameObject victory;
+        
+        
         public Button pauseGame;
         public Button startButton;
         public Button resumeButton;
@@ -86,6 +89,9 @@ namespace _Main_Work.Dam.Scripts
         public void OpenEndGame()
         {
             gameEnd.SetActive(true);
+        }public void OpenVictory(bool bien)
+        {
+            victory.SetActive(bien);
         }
     }
 }

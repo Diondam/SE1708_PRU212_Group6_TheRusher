@@ -31,7 +31,7 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
         public override void OnUpdate()
         {
             base.OnUpdate();
-            MoveRandom(ref thisEnemy.moveRandomTime, ref thisEnemy.rangeIdle);
+           // MoveRandom(ref thisEnemy.moveRandomTime, ref thisEnemy.rangeIdle);
 
             if (thisEnemy.CheckAttack() && thisEnemy.currentState != thisEnemy.attackState)
             {
@@ -58,7 +58,7 @@ namespace _Main_Work.Dam.Scripts.Character.Enemy
                 thisEnemy.anim?.SetBool("idle", true);
             }
 
-            if (count >= 2 * brakeTimeIdel)
+            if (count >= 2 * brakeTimeIdel || thisEnemy.CheckMove())
             {
                 count = 0;
                 changeDirection *= -1;
