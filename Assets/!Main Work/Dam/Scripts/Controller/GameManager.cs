@@ -60,6 +60,11 @@ namespace _Main_Work.Dam.Scripts
         public void ReStart()
         {
             uiController.OpenVictory(false);
+            if (level == 6)
+            {
+                SceneManager.LoadScene("level0", LoadSceneMode.Additive);
+                return;
+            }
 
             //TODO: tắt 2 cái trước rồi mới load
             uiController.DelayImage.gameObject.SetActive(true);
@@ -81,6 +86,7 @@ namespace _Main_Work.Dam.Scripts
             if (this.level == 6)
             {
                 uiController.OpenVictory(true);
+                SceneManager.UnloadSceneAsync("level" + (this.level-1));
                 return;
             }
             StartCoroutine(uiController.OpenDelayScene());

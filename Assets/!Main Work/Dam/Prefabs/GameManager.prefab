@@ -1026,6 +1026,7 @@ MonoBehaviour:
   gameStart: {fileID: 5910610890850849181}
   gameSettings: {fileID: 2127460849639696087}
   gameEnd: {fileID: 8108462265803021317}
+  victory: {fileID: 7235888717393629043}
   pauseGame: {fileID: 0}
   startButton: {fileID: 1397614211556998324}
   resumeButton: {fileID: 6047294098870107299}
@@ -2346,7 +2347,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7412723952206574619
 RectTransform:
   m_ObjectHideFlags: 0
